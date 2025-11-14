@@ -1,0 +1,27 @@
+-Presents, Cubes, circle collision detection,
+
+-Home alone game, play as kevin mcallister 
+-Title crawl
+-Game Over dead body
+-Elvis kidnapped santa and wants to ruin christmas, 
+
+Textures:
+	-Kevin Mcallister
+	-Elvis
+	-Bloody Mess
+	-Santa Claus
+	-Christmas Tree
+	-Peanut Butter and Banana Sanwhich
+	-Fireplace
+
+Player Object;
+	-Vector2 Position
+	-Vector2 Size
+	-Texture image?
+	-Int score
+	-Gravity?
+	-Velocity?
+	-int health; //Max of 2
+	-int lives;  //Max of 3? maybe 2?
+	-int multiplied input values
+	-string direction //For ice level
