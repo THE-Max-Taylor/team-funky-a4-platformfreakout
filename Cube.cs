@@ -20,8 +20,8 @@ namespace MohawkGame2D
         Vector2 pointF;
         Vector2 pointG;
         int radius = 55;
-        int circlePoint;
-        int circlePoint2;
+        Vector2 circlePoint;
+        
         bool firstTurn = true;
         bool reset = false;
 
@@ -41,19 +41,18 @@ namespace MohawkGame2D
             pointE = new Vector2(firstPointX, firstPointY);
             pointF = new Vector2(firstPointX + 80, firstPointY);
             pointG = new Vector2(firstPointX + 80, firstPointY + 80);
-            circlePoint = firstPointX + 40;
-            circlePoint2 = firstPointY + 80;
+            circlePoint = new Vector2(firstPointX + 40,firstPointY + 80 );
         }
 
         /// <summary>
         ///     Update runs every frame.
         /// </summary>
-        public void Update()
+        public void Update(bool collected)
         {
             Draw.LineColor = Color.Red;
             Draw.FillColor = Color.Red;
 
-            Draw.Circle(new Vector2 (circlePoint, circlePoint2), 80);
+            Draw.Circle(circlePoint, 80);
             Draw.LineColor = Color.Black;
             Draw.Line(pointE, pointA); //Line 1
             Draw.Line(pointE, pointF); //Line 2
@@ -133,8 +132,24 @@ namespace MohawkGame2D
                 firstTurn = true;
             }
 
+            if (collected == true){
+                firstPointX = Random.Integer(1, 500);
+                firstPointY = Random.Integer(1, 500);
+                pointA = new Vector2(firstPointX, firstPointY + 80);
+                pointB = new Vector2(firstPointX + 80, firstPointY + 80);
+                pointC = new Vector2(firstPointX, firstPointY + 160);
+                pointD = new Vector2(firstPointX + 80, firstPointY + 160);
+                pointE = new Vector2(firstPointX, firstPointY);
+                pointF = new Vector2(firstPointX + 80, firstPointY);
+                pointG = new Vector2(firstPointX + 80, firstPointY + 80);
+                circlePoint = new Vector2(firstPointX + 40, firstPointY + 80);
+            }
+        }
 
 
+        public Vector2 getDetection()
+        {
+            return circlePoint;
         }
     }
 }

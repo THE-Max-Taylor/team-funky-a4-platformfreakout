@@ -31,8 +31,8 @@ namespace MohawkGame2D
         public void Update()
         {
             Window.ClearBackground(Color.White);
-            player.Update();
-            cubes.Update();
+            player.Update(cubes.getDetection());
+            cubes.Update(player.HasPresent());
 
         }
     }

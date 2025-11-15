@@ -16,6 +16,9 @@ namespace MohawkGame2D
         Texture2D texture;
         int score;
         int lives = 3; //How many lives the player has
+
+        bool hasPresent = false;
+
         public Player() { }
 
         /// <summary>
@@ -24,13 +27,15 @@ namespace MohawkGame2D
         public void Setup() {
             feetPosition = new Vector2(position.X, position.Y + 60); 
             texture = Graphics.LoadTexture("MohawkGame2D\\Images\\Kevin.png");
+            size = new Vector2(100, 200);
         }
 
         /// <summary>
         /// Update runs every frame.
         /// </summary>
-        public void Update() {
+        public void Update(Vector2 presentCollision) {
             Inputs();
+            CheckPresent(presentCollision);
             Graphics.Draw(texture, position);
         }
 
@@ -38,7 +43,7 @@ namespace MohawkGame2D
         /// Checks for player inputs via controller or keyboard
         /// </summary>
         void Inputs(){
-            float deadzone = 0.05f;
+            float deadzone = 0.10f;
             if ((Input.IsKeyboardKeyDown(KeyboardInput.Right) == true) || (Input.GetAnyControllerAxis(ControllerAxis.LeftX, deadzone) > 0.10))
             {
                 position.X += 10;
@@ -56,6 +61,25 @@ namespace MohawkGame2D
             {
                 position.Y -= 10;
             }
+        }
+
+        void CheckPresent(Vector2 presentCollision){
+            if ((position.X + size.X > presentCollision.X - 55)&&(position.X < presentCollision.X - 55)){
+                if ((position.Y + size.Y > presentCollision.Y - 55) && (position.Y < presentCollision.Y - 55))
+                {
+                    
+                    hasPresent = true;
+                    score += 10;
+                    Console.WriteLine(score);
+                }
+            }
+            else {
+                hasPresent = false;
+            }
+        }
+
+        public bool HasPresent() { 
+            return hasPresent; 
         }
     }
 }
