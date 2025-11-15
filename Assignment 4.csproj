@@ -27,4 +27,10 @@
     <Folder Include="MohawkGame2D\Images\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="MohawkGame2D\Images\Kevin.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
