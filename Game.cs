@@ -13,6 +13,7 @@ namespace MohawkGame2D
         // Place your variables here:
         Player player = new Player();
         Cube cubes = new Cube();
+        GameOver gameOverScreen = new GameOver();
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
@@ -23,6 +24,8 @@ namespace MohawkGame2D
             Window.SetTitle("Home Alone 7");
             player.Setup();
             cubes.Setup();
+
+            gameOverScreen.Setup();
         }
 
         /// <summary>
@@ -34,6 +37,11 @@ namespace MohawkGame2D
             player.Update(cubes.getDetection());
             cubes.Update(player.HasPresent());
 
+
+            if (player.HasLives() <= 0)
+            {
+                gameOverScreen.Update();
+            }
         }
     }
 

@@ -33,6 +33,7 @@ namespace MohawkGame2D
         /// <summary>
         /// Update runs every frame.
         /// </summary>
+        /// <param name="presentCollision">Passes present collision to see if player has collided with present</param>
         public void Update(Vector2 presentCollision) {
             Inputs();
             CheckPresent(presentCollision);
@@ -63,9 +64,13 @@ namespace MohawkGame2D
             }
         }
 
+        /// <summary>
+        /// Has the player collided with a present
+        /// </summary>
+        /// <param name="presentCollision"></param>
         void CheckPresent(Vector2 presentCollision){
-            if ((position.X + size.X > presentCollision.X - 55)&&(position.X < presentCollision.X - 55)){
-                if ((position.Y + size.Y > presentCollision.Y - 55) && (position.Y < presentCollision.Y - 55))
+            if ((position.X + size.X > presentCollision.X - 55)&&(position.X < presentCollision.X + 55)){
+                if ((position.Y + size.Y > presentCollision.Y - 55) && (position.Y < presentCollision.Y + 55))
                 {
                     
                     hasPresent = true;
@@ -78,8 +83,29 @@ namespace MohawkGame2D
             }
         }
 
+        /// <summary>
+        /// Checks if the player is on the same spot as a present
+        /// </summary>
+        /// <returns>Boolean true if player is on the same spot as a present</returns>
         public bool HasPresent() { 
             return hasPresent; 
+        }
+
+        /// <summary>
+        /// Used to check how many lives the player has
+        /// </summary>
+        /// <returns>Number of lives player has</returns>
+        public int HasLives() { 
+            return lives; 
+        }
+
+        /// <summary>
+        /// Resets the player stats
+        /// </summary>
+        public void resetPlayer(){
+            score = 0;
+            lives = 3;
+            position = new Vector2(100, 100);
         }
     }
 }
