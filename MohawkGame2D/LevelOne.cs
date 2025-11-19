@@ -18,10 +18,15 @@ namespace MohawkGame2D
         Texture2D textureYay;
         Presents presentsYay = new Presents();
         Player joePlayer = new Player();
-        public void update()
+
+        public void setup()
         {
+            textureYay = Graphics.LoadTexture("MohawkGame2D\\Images\\Lava.png");
+        }
+
+        public void update()
+        {           
             //the obstacles
-            textureYay = Graphics.LoadTexture("MohawkGame2D\\Images\\Screenshot 2025-11-16 230008.png");
             Draw.LineColor = Color.Yellow;
             Draw.FillColor = Color.Yellow;
             Draw.Rectangle(badRectPos.X, badRectPos.Y, badRectSize.X-50, badRectSize.Y);
@@ -35,14 +40,15 @@ namespace MohawkGame2D
             Draw.Rectangle(badRectPos.X, badRectPos.Y-600, badRectSize.X + 150, badRectSize.Y-150);
             Draw.Rectangle(badRectPos.X+200, badRectPos.Y - 600, badRectSize.X, badRectSize.Y + 150);
 
+            Graphics.Draw(textureYay, badRectPos.X, badRectPos.Y);
+
             //exit code
             Draw.FillColor = Color.White;
             Draw.Rectangle(exitPos, exitSize);
 
             //draw the presents!!
             presentsYay.update();
-            
-
+           
             //Graphics.Draw(textureYay, );
 
             //compute collision for obstacles
