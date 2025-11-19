@@ -13,6 +13,7 @@ namespace MohawkGame2D
         // Place your variables here:
         Player player = new Player();
         Cube cubes = new Cube();
+        LevelOne levelOne = new LevelOne();
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
@@ -29,11 +30,11 @@ namespace MohawkGame2D
         ///     Update runs every frame.
         /// </summary>
         public void Update()
-        {
-            Window.ClearBackground(Color.White);
+        {          
+            Window.ClearBackground(Color.Green);
+            levelOne.update();
             player.Update(cubes.getDetection());
             cubes.Update(player.HasPresent());
-
         }
     }
 
