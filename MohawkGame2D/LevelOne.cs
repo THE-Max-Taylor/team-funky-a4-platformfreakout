@@ -17,6 +17,7 @@ namespace MohawkGame2D
         Vector2 exitPos = new Vector2(800, 350);
         Texture2D textureYay;
         Presents presentsYay = new Presents();
+        Player joePlayer = new Player();
         public void update()
         {
             //the obstacles
@@ -38,6 +39,7 @@ namespace MohawkGame2D
             Draw.FillColor = Color.White;
             Draw.Rectangle(exitPos, exitSize);
 
+            //draw the presents!!
             presentsYay.update();
             Draw.FillColor = Color.Red;
             Draw.LineColor = Color.Black;
@@ -54,6 +56,17 @@ namespace MohawkGame2D
 
 
             //Graphics.Draw(textureYay, );
+
+            //compute collision for obstacles
+            float leftEdge1 = badRectPos.X;
+            float rightEdge1 = badRectPos.X + badRectSize.X;
+            float topEdge1 = badRectPos.Y;
+            float bottomEdge1 = badRectPos.Y + badRectSize.Y;
+
+            float playerEdge = joePlayer.feetPosition.X;
+            float playerRightEdge = joePlayer.feetPosition.X + joePlayer.feetSize.X;
+            float playerTop = joePlayer.feetPosition.Y;
+            float playerBottom = joePlayer.feetPosition.Y + joePlayer.feetSize.Y;
         }
     }
 }
