@@ -42,6 +42,8 @@ namespace MohawkGame2D
             Draw.LineColor = Color.Black;
             Draw.FillColor = Color.White;
             for (int i = 0; i < snow.Length; i++) {
+                if((i > 200)){ snow[i].Y++; }
+                if((i >  400)){ snow[i].Y++; }
                 snow[i].Y++;
                 if(snow[i].Y > 800) { snow[i].Y = 0; }
                 Draw.Circle(snow[i], 2);

@@ -62,15 +62,16 @@ namespace MohawkGame2D
                 position.Y -= 10;
             }
 
+            //Used to test game over
             if (Input.IsKeyboardKeyDown(KeyboardInput.P) == true )
             {
-                lives--;
+                lives = 0;
             }
         }
 
         void CheckPresent(Vector2 presentCollision){
-            if ((position.X + size.X > presentCollision.X - 55)&&(position.X < presentCollision.X - 55)){
-                if ((position.Y + size.Y > presentCollision.Y - 55) && (position.Y < presentCollision.Y - 55))
+            if ((position.X + size.X > presentCollision.X - 45)&&(position.X < presentCollision.X + 60)){
+                if ((position.Y + size.Y > presentCollision.Y - 45) && (position.Y < presentCollision.Y + 65))
                 {
                     
                     hasPresent = true;

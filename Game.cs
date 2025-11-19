@@ -38,7 +38,7 @@ namespace MohawkGame2D
             player.Update(cubes.getDetection());
             cubes.Update(player.HasPresent());
 
-            if(player.getLives() < 0) {gameOverScreen.Update();}
+            if(player.getLives() <= 0) {gameOverScreen.Update();}
         }
     }
 
