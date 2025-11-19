@@ -11,8 +11,8 @@ namespace MohawkGame2D
 {
     public class LevelOne
     {
-        Vector2 badRectSize = new Vector2(100, 200);
-        Vector2 badRectPos = new Vector2(0, 600);
+        public Vector2 badRectSize = new Vector2(100, 200);
+        public Vector2 badRectPos = new Vector2(0, 600);
         Vector2 exitSize = new Vector2(100, 100);
         Vector2 exitPos = new Vector2(800, 350);
         Texture2D textureYay;
@@ -41,19 +41,7 @@ namespace MohawkGame2D
 
             //draw the presents!!
             presentsYay.update();
-            Draw.FillColor = Color.Red;
-            Draw.LineColor = Color.Black;
-            Draw.Rectangle(presentsYay.presentsPos.X+100, presentsYay.presentsPos.Y+100, presentsYay.presentsSize.X, presentsYay.presentsSize.Y);
-            Draw.Rectangle(presentsYay.presentsPos.X + 400, presentsYay.presentsPos.Y + 100, presentsYay.presentsSize.X, presentsYay.presentsSize.Y);
-            Draw.Rectangle(presentsYay.presentsPos.X + 400, presentsYay.presentsPos.Y + 400, presentsYay.presentsSize.X, presentsYay.presentsSize.Y);
-            Draw.Rectangle(presentsYay.presentsPos.X + 930, presentsYay.presentsPos.Y + 670, presentsYay.presentsSize.X, presentsYay.presentsSize.Y);
-            Draw.Rectangle(presentsYay.presentsPos.X + 800, presentsYay.presentsPos.Y + 670, presentsYay.presentsSize.X, presentsYay.presentsSize.Y);
-            Draw.Rectangle(presentsYay.presentsPos.X + 670, presentsYay.presentsPos.Y + 670, presentsYay.presentsSize.X, presentsYay.presentsSize.Y);
-            Draw.Rectangle(presentsYay.presentsPos.X + 670, presentsYay.presentsPos.Y, presentsYay.presentsSize.X, presentsYay.presentsSize.Y);
-            Draw.Rectangle(presentsYay.presentsPos.X + 1030, presentsYay.presentsPos.Y, presentsYay.presentsSize.X, presentsYay.presentsSize.Y);
-            Draw.Rectangle(presentsYay.presentsPos.X + 160, presentsYay.presentsPos.Y + 550, presentsYay.presentsSize.X, presentsYay.presentsSize.Y);
-            Draw.Rectangle(presentsYay.presentsPos.X + 950, presentsYay.presentsPos.Y+500, presentsYay.presentsSize.X, presentsYay.presentsSize.Y);
-
+            
 
             //Graphics.Draw(textureYay, );
 
@@ -76,9 +64,9 @@ namespace MohawkGame2D
             bool doesOverlap = doesOverlapLeft && doesOverlapRight && doesOverlapTop && doesOverlapBottom;
             if (doesOverlap)
             {
-                Draw.FillColor = Color.Blue;
-                Draw.Circle(20, 20, 50);
+                Console.WriteLine("YEOWCH");
             }
+
         }
     }
 }

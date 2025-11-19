@@ -13,6 +13,7 @@ namespace MohawkGame2D
     {
         // Place your variables here:
         Player player = new Player();
+        Player joePlayer = new Player();
         Cube cubes = new Cube();
         LevelOne levelOne = new LevelOne();
         
@@ -37,6 +38,7 @@ namespace MohawkGame2D
             levelOne.update();           
             player.Update(cubes.getDetection());
             cubes.Update(player.HasPresent());
+            
         }
     }
 

@@ -16,9 +16,19 @@ namespace GAME_10003_Game_Development_Foundations___2D_Game_Template__v1._4_1.Mo
         {
             Vector2 presentsPos = new Vector2(0, 0);
             Vector2 presentsSize = new Vector2(50, 40);
-            //Draw.FillColor = Color.Black;
-            //Draw.FillColor = Color.Red;
-            //Draw.Rectangle(presentsPos, presentsSize);
+            Draw.FillColor = Color.Red;
+            Draw.LineColor = Color.Black;
+            Draw.Rectangle(presentsPos.X + 100, presentsPos.Y + 100, presentsSize.X, presentsSize.Y);
+            Draw.Rectangle(presentsPos.X + 400,presentsPos.Y + 100, presentsSize.X, presentsSize.Y);
+            Draw.Rectangle(presentsPos.X + 400, presentsPos.Y + 400, presentsSize.X, presentsSize.Y);
+            Draw.Rectangle(presentsPos.X + 930, presentsPos.Y + 670, presentsSize.X, presentsSize.Y);
+            Draw.Rectangle(presentsPos.X + 800, presentsPos.Y + 670, presentsSize.X, presentsSize.Y);
+            Draw.Rectangle(presentsPos.X + 670, presentsPos.Y + 670, presentsSize.X, presentsSize.Y);
+            Draw.Rectangle(presentsPos.X + 670, presentsPos.Y, presentsSize.X, presentsSize.Y);
+            Draw.Rectangle(presentsPos.X + 1030, presentsPos.Y, presentsSize.X, presentsSize.Y);
+            Draw.Rectangle(presentsPos.X + 160, presentsPos.Y + 550, presentsSize.X, presentsSize.Y);
+            Draw.Rectangle(presentsPos.X + 950, presentsPos.Y + 500, presentsSize.X, presentsSize.Y);
+
         }
     }
 }
