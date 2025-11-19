@@ -81,5 +81,7 @@ namespace MohawkGame2D
         public bool HasPresent() { 
             return hasPresent; 
         }
+
+        Vector2 bigApe = new Vector2();
     }
 }
