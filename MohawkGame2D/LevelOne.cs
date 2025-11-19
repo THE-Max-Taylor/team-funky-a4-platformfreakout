@@ -1,4 +1,5 @@
-﻿using Raylib_cs;
+﻿using GAME_10003_Game_Development_Foundations___2D_Game_Template__v1._4_1.MohawkGame2D;
+using Raylib_cs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,26 +13,47 @@ namespace MohawkGame2D
     {
         Vector2 badRectSize = new Vector2(100, 200);
         Vector2 badRectPos = new Vector2(0, 600);
-        Texture2D texture;
-
-        
-           
-
+        Vector2 exitSize = new Vector2(100, 100);
+        Vector2 exitPos = new Vector2(800, 350);
+        Texture2D textureYay;
+        Presents presentsYay = new Presents();
         public void update()
         {
-            texture = Graphics.LoadTexture("MohawkGame2D\\Images\\Screenshot 2025-11-16 230008.png");
+            //the obstacles
+            textureYay = Graphics.LoadTexture("MohawkGame2D\\Images\\Screenshot 2025-11-16 230008.png");
             Draw.LineColor = Color.Yellow;
             Draw.FillColor = Color.Yellow;
             Draw.Rectangle(badRectPos.X, badRectPos.Y, badRectSize.X-50, badRectSize.Y);
             Draw.Rectangle(badRectPos.X, badRectPos.Y-150, badRectSize.X-50, badRectSize.Y);
-            Draw.Rectangle(badRectPos.X+180, badRectPos.Y + 140, badRectSize.X + 1000, badRectSize.Y-130);
-            Draw.Rectangle(badRectPos.X + 180, badRectPos.Y + 140, badRectSize.X + 1000, badRectSize.Y - 130);
-            Draw.Rectangle(badRectPos.X + 210, badRectPos.Y - 30, badRectSize.X + 1000, badRectSize.Y - 100);
-            Draw.Rectangle(badRectPos.X + 250, badRectPos.Y - 30, badRectSize.X + 1000, badRectSize.Y - 130);
+            Draw.Rectangle(badRectPos.X+180, badRectPos.Y + 140, badRectSize.X + 1000, badRectSize.Y-130);                       
+            Draw.Rectangle(badRectPos.X + 250, badRectPos.Y - 30, badRectSize.X + 300, badRectSize.Y - 130);
+            Draw.Rectangle(badRectPos.X + 770, badRectPos.Y - 30, badRectSize.X + 300, badRectSize.Y - 130);
             Draw.Rectangle(badRectPos.X + 500, badRectPos.Y - 550, badRectSize.X+200, badRectSize.Y);
             Draw.Rectangle(badRectPos.X + 900, badRectPos.Y - 650, badRectSize.X, badRectSize.Y+40);
             Draw.Rectangle(badRectPos.X, badRectPos.Y-600, badRectSize.X - 50, badRectSize.Y);
             Draw.Rectangle(badRectPos.X, badRectPos.Y-600, badRectSize.X + 150, badRectSize.Y-150);
+            Draw.Rectangle(badRectPos.X+200, badRectPos.Y - 600, badRectSize.X, badRectSize.Y + 150);
+
+            //exit code
+            Draw.FillColor = Color.White;
+            Draw.Rectangle(exitPos, exitSize);
+
+            presentsYay.update();
+            Draw.FillColor = Color.Red;
+            Draw.LineColor = Color.Black;
+            Draw.Rectangle(presentsYay.presentsPos.X+100, presentsYay.presentsPos.Y+100, presentsYay.presentsSize.X, presentsYay.presentsSize.Y);
+            Draw.Rectangle(presentsYay.presentsPos.X + 400, presentsYay.presentsPos.Y + 100, presentsYay.presentsSize.X, presentsYay.presentsSize.Y);
+            Draw.Rectangle(presentsYay.presentsPos.X + 400, presentsYay.presentsPos.Y + 400, presentsYay.presentsSize.X, presentsYay.presentsSize.Y);
+            Draw.Rectangle(presentsYay.presentsPos.X + 930, presentsYay.presentsPos.Y + 670, presentsYay.presentsSize.X, presentsYay.presentsSize.Y);
+            Draw.Rectangle(presentsYay.presentsPos.X + 800, presentsYay.presentsPos.Y + 670, presentsYay.presentsSize.X, presentsYay.presentsSize.Y);
+            Draw.Rectangle(presentsYay.presentsPos.X + 670, presentsYay.presentsPos.Y + 670, presentsYay.presentsSize.X, presentsYay.presentsSize.Y);
+            Draw.Rectangle(presentsYay.presentsPos.X + 670, presentsYay.presentsPos.Y, presentsYay.presentsSize.X, presentsYay.presentsSize.Y);
+            Draw.Rectangle(presentsYay.presentsPos.X + 1030, presentsYay.presentsPos.Y, presentsYay.presentsSize.X, presentsYay.presentsSize.Y);
+            Draw.Rectangle(presentsYay.presentsPos.X + 160, presentsYay.presentsPos.Y + 550, presentsYay.presentsSize.X, presentsYay.presentsSize.Y);
+            Draw.Rectangle(presentsYay.presentsPos.X + 950, presentsYay.presentsPos.Y+500, presentsYay.presentsSize.X, presentsYay.presentsSize.Y);
+
+
+            //Graphics.Draw(textureYay, );
         }
     }
 }

@@ -15,7 +15,7 @@ namespace MohawkGame2D
         Player player = new Player();
         Cube cubes = new Cube();
         LevelOne levelOne = new LevelOne();
-        Presents presentsYay = new Presents();
+        
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
@@ -34,8 +34,7 @@ namespace MohawkGame2D
         public void Update()
         {          
             Window.ClearBackground(Color.Green);
-            levelOne.update();
-            presentsYay.update();
+            levelOne.update();           
             player.Update(cubes.getDetection());
             cubes.Update(player.HasPresent());
         }

@@ -10,13 +10,15 @@ namespace GAME_10003_Game_Development_Foundations___2D_Game_Template__v1._4_1.Mo
 {
     internal class Presents
     {
+        public Vector2 presentsPos = new Vector2(0, 0);
+        public Vector2 presentsSize = new Vector2(50, 40);
         public void update()
         {
             Vector2 presentsPos = new Vector2(0, 0);
             Vector2 presentsSize = new Vector2(50, 40);
-            Draw.FillColor = Color.Black;
-            Draw.FillColor = Color.Red;
-            Draw.Rectangle(presentsPos, presentsSize);
+            //Draw.FillColor = Color.Black;
+            //Draw.FillColor = Color.Red;
+            //Draw.Rectangle(presentsPos, presentsSize);
         }
     }
 }
