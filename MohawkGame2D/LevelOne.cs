@@ -58,15 +58,27 @@ namespace MohawkGame2D
             //Graphics.Draw(textureYay, );
 
             //compute collision for obstacles
-            float leftEdge1 = badRectPos.X;
-            float rightEdge1 = badRectPos.X + badRectSize.X;
-            float topEdge1 = badRectPos.Y;
-            float bottomEdge1 = badRectPos.Y + badRectSize.Y;
+            float leftEdge1 = badRectPos.X + 500;
+            float rightEdge1 = (badRectPos.X + 500) + (badRectSize.X + 200);
+            float topEdge1 = (badRectPos.Y - 550);
+            float bottomEdge1 = (badRectPos.Y - 550) + badRectSize.Y;
 
             float playerEdge = joePlayer.feetPosition.X;
             float playerRightEdge = joePlayer.feetPosition.X + joePlayer.feetSize.X;
             float playerTop = joePlayer.feetPosition.Y;
             float playerBottom = joePlayer.feetPosition.Y + joePlayer.feetSize.Y;
+
+            bool doesOverlapLeft = leftEdge1 < playerRightEdge;
+            bool doesOverlapRight = rightEdge1 > playerEdge;
+            bool doesOverlapTop = topEdge1 < playerBottom;
+            bool doesOverlapBottom = bottomEdge1 > playerTop;
+
+            bool doesOverlap = doesOverlapLeft && doesOverlapRight && doesOverlapTop && doesOverlapBottom;
+            if (doesOverlap)
+            {
+                Draw.FillColor = Color.Blue;
+                Draw.Circle(20, 20, 50);
+            }
         }
     }
 }
