@@ -21,9 +21,7 @@ namespace MohawkGame2D
             Draw.Rectangle(badRectPos.X+180, badRectPos.Y + 140, badRectSize.X + 1000, badRectSize.Y-130);
             Draw.Rectangle(badRectPos.X + 180, badRectPos.Y + 140, badRectSize.X + 1000, badRectSize.Y - 130);
             Draw.Rectangle(badRectPos.X + 180, badRectPos.Y - 30, badRectSize.X + 1000, badRectSize.Y - 130);
-
-
-
+            Draw.Rectangle(badRectPos.X + 180, badRectPos.Y - 30, badRectSize.X + 1000, badRectSize.Y - 130);
 
         }
     }

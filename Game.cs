@@ -1,4 +1,5 @@
 ﻿// Include the namespaces (code libraries) you need below.
+using GAME_10003_Game_Development_Foundations___2D_Game_Template__v1._4_1.MohawkGame2D;
 using System;
 using System.Numerics;
 
@@ -14,6 +15,7 @@ namespace MohawkGame2D
         Player player = new Player();
         Cube cubes = new Cube();
         LevelOne levelOne = new LevelOne();
+        Presents presentsYay = new Presents();
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
@@ -33,6 +35,7 @@ namespace MohawkGame2D
         {          
             Window.ClearBackground(Color.Green);
             levelOne.update();
+            presentsYay.update();
             player.Update(cubes.getDetection());
             cubes.Update(player.HasPresent());
         }
