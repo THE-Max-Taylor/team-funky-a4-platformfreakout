@@ -61,6 +61,11 @@ namespace MohawkGame2D
             {
                 position.Y -= 10;
             }
+
+            if (Input.IsKeyboardKeyDown(KeyboardInput.P) == true )
+            {
+                lives--;
+            }
         }
 
         void CheckPresent(Vector2 presentCollision){
@@ -80,6 +85,10 @@ namespace MohawkGame2D
 
         public bool HasPresent() { 
             return hasPresent; 
+        }
+
+        public int getLives() { 
+            return lives; 
         }
 
         Vector2 bigApe = new Vector2();
