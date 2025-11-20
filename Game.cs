@@ -11,6 +11,8 @@ namespace MohawkGame2D
     /// </summary>
     public class Game
     {
+
+        
         // Place your variables here:
         Player player = new Player();
         Player joePlayer = new Player();
@@ -65,6 +67,10 @@ namespace MohawkGame2D
             player.Update(cubes.getDetection(), level2.GetDetection());
 
             if (player.GetLives() <= 0) { gameOverScreen.Update(); }
+
+                            // speed = new Vector2(whatever the fuck, the same thing);
+                // angle = Vector2.Normalize(enemy.pos - player.pos);
+                // enemy.pos -= angle * speed
         }
 
 
