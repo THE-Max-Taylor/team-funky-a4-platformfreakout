@@ -17,11 +17,12 @@ namespace MohawkGame2D
         Player player = new Player();
         Player joePlayer = new Player();
         Cube cubes = new Cube();
-        LevelOne levelOne = new LevelOne();
+        Level1 levelOne = new Level1();
         //Enemy enemies = new Enemy();
 
 
 
+        Level1 level1 = new Level1();
         Level2 level2 = new Level2();
 
         //Game over screen when the player dies
@@ -47,8 +48,8 @@ namespace MohawkGame2D
         public void Update()
         {
             Window.ClearBackground(Color.Green);
-            levelOne.update();           
-            player.Update(cubes.getDetection());
+                       
+           
             cubes.Update(player.HasPresent());
             //enemies.update();
 
@@ -57,12 +58,17 @@ namespace MohawkGame2D
 
                 cubes.Update(player.HasPresent());
 
+                if (player.GetLives() == 5)
+                {
 
+                    level1.Update();
+                }
                 if (player.GetLives() == 14)
                 {
                     player.GetDirection();
                     level2.Update(player.FeetCollision());
                 }
+
 
 
                 player.Update(cubes.getDetection(), level2.GetDetection());

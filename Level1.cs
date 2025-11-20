@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MohawkGame2D
 {
-    public class LevelOne
+    public class Level1
     {
         public Vector2 badRectSize = new Vector2(100, 200);
         public Vector2 badRectPos = new Vector2(0, 600);
