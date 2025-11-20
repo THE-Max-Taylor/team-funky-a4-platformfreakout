@@ -88,7 +88,7 @@ namespace MohawkGame2D
             {
                 lives = 2;
             }
-            if ((score >= 250) && (lives == 2))
+            if ((score >= 110) && (lives == 2))
             {
                 lives = 3;
             }

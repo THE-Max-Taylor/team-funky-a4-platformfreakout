@@ -33,8 +33,8 @@ namespace MohawkGame2D
         /// </summary>
         public void Setup()
         {
-            firstPointX = Random.Integer(1, 500);
-            firstPointY = Random.Integer(1, 500);
+            firstPointX = Random.Integer(1, 1000);
+            firstPointY = Random.Integer(1, 750);
             pointA = new Vector2(firstPointX, firstPointY + 80);
             pointB = new Vector2(firstPointX + 80, firstPointY + 80);
             pointC = new Vector2(firstPointX, firstPointY + 160);

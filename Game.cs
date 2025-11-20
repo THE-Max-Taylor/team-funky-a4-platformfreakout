@@ -23,6 +23,7 @@ namespace MohawkGame2D
 
         Level1 level1 = new Level1();
         Level2 level2 = new Level2();
+        FinalLevel level3 = new FinalLevel();
 
         //Game over screen when the player dies
         GameOver gameOverScreen = new GameOver();
@@ -39,6 +40,7 @@ namespace MohawkGame2D
             gameOverScreen.Setup();
             level1.Setup();
             level2.Setup();
+            level3.Setup();
         }
 
         /// <summary>
@@ -46,8 +48,6 @@ namespace MohawkGame2D
         /// </summary>
         public void Update()
         {
-            Window.ClearBackground(Color.Green);
-
 
             cubes.Update(player.HasPresent());
             //enemies.update();
@@ -67,7 +67,10 @@ namespace MohawkGame2D
                     player.GetDirection();
                     level2.Update(player.FeetCollision());
                 }
-
+                if (player.GetLives() == 3)
+                {
+                    level3.Update();
+                }
 
 
                 player.Update(cubes.getDetection(), level1.GetDetection(), level2.GetDetection());

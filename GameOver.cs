@@ -51,7 +51,7 @@ namespace MohawkGame2D
             }
 
             //Uncomment once incorporated restart
-            //Text.Draw("Press 'enter' to restart...", new Vector2(320, 700));
+            Text.Draw("You can never win...", new Vector2(320, 700));
 
         }
     }
