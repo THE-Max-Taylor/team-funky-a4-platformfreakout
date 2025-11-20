@@ -14,6 +14,12 @@ namespace MohawkGame2D
         Player player = new Player();
         Cube cubes = new Cube();
 
+
+        Level2 level2 = new Level2();
+
+        //Game over screen when the player dies
+        GameOver gameOverScreen = new GameOver();
+
         /// <summary>
         ///     Setup runs once before the game loop begins.
         /// </summary>
@@ -23,6 +29,9 @@ namespace MohawkGame2D
             Window.SetTitle("Home Alone 7");
             player.Setup();
             cubes.Setup();
+            gameOverScreen.Setup();
+
+            level2.Setup();
         }
 
         /// <summary>
@@ -31,10 +40,22 @@ namespace MohawkGame2D
         public void Update()
         {
             Window.ClearBackground(Color.White);
-            player.Update(cubes.getDetection());
+            
             cubes.Update(player.HasPresent());
 
+          
+            if(player.GetLives() == 14) { 
+                player.GetDirection();
+                level2.Update(player.FeetCollision());
+            }
+            
+            
+            player.Update(cubes.getDetection(), level2.GetDetection());
+
+            if (player.GetLives() <= 0) { gameOverScreen.Update(); }
         }
+
+
     }
 
 }

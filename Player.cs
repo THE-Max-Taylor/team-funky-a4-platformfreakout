@@ -15,9 +15,11 @@ namespace MohawkGame2D
         Vector2 feetSize = new Vector2(100, 40); //Used to check collision closer to legs and feet
         Texture2D texture;
         int score;
-        int lives = 3; //How many lives the player has
-
+        int lives = 3000; //How many lives the player has
+        string direction = "";
         bool hasPresent = false;
+
+        bool onIce = false;
 
         public Player() { }
 
@@ -33,8 +35,10 @@ namespace MohawkGame2D
         /// <summary>
         /// Update runs every frame.
         /// </summary>
-        public void Update(Vector2 presentCollision) {
+        public void Update(Vector2 presentCollision, bool holeCollision) {
+            if (holeCollision == true) {CheckHole();}
             Inputs();
+
             CheckPresent(presentCollision);
             Graphics.Draw(texture, position);
         }
@@ -43,29 +47,53 @@ namespace MohawkGame2D
         /// Checks for player inputs via controller or keyboard
         /// </summary>
         void Inputs(){
-            float deadzone = 0.10f;
+            float deadzone = 0.15f;
             if ((Input.IsKeyboardKeyDown(KeyboardInput.Right) == true) || (Input.GetAnyControllerAxis(ControllerAxis.LeftX, deadzone) > 0.10))
             {
                 position.X += 10;
-
+                direction = "right";
             }
             else if ((Input.IsKeyboardKeyDown(KeyboardInput.Left) == true) || (Input.GetAnyControllerAxis(ControllerAxis.LeftX, deadzone) < -0.10))
             {
                 position.X -= 10;
+                direction = "left";
             }
             if ((Input.IsKeyboardKeyDown(KeyboardInput.Down) == true) || (Input.GetAnyControllerAxis(ControllerAxis.LeftY, deadzone) > 0.10))
             {
                 position.Y += 10;
+                direction = "down";
             }
             else if ((Input.IsKeyboardKeyDown(KeyboardInput.Up) == true) || (Input.GetAnyControllerAxis(ControllerAxis.LeftY, deadzone) < -0.10))
             {
                 position.Y -= 10;
+                direction = "up";
             }
+
+            //Used to test game over
+            if (Input.IsKeyboardKeyDown(KeyboardInput.P) == true )
+            {
+                lives = 0;
+            }
+            //Used to test level 2
+            if (Input.IsKeyboardKeyDown(KeyboardInput.L) == true)
+            {
+                lives = 14;
+            }
+
+            feetPosition.X = position.X;
+            feetPosition.Y = position.Y + 60;
+
+            Console.WriteLine(feetPosition.X + ", " + feetPosition.Y);
+            OutOfBounds();
         }
 
+        /// <summary>
+        /// Checks if the player is touching a present
+        /// </summary>
+        /// <param name="presentCollision">The point of the present</param>
         void CheckPresent(Vector2 presentCollision){
-            if ((position.X + size.X > presentCollision.X - 55)&&(position.X < presentCollision.X - 55)){
-                if ((position.Y + size.Y > presentCollision.Y - 55) && (position.Y < presentCollision.Y - 55))
+            if ((position.X + size.X > presentCollision.X - 45)&&(position.X < presentCollision.X + 60)){
+                if ((position.Y + size.Y > presentCollision.Y - 45) && (position.Y < presentCollision.Y + 65))
                 {
                     
                     hasPresent = true;
@@ -78,10 +106,59 @@ namespace MohawkGame2D
             }
         }
 
+        /// <summary>
+        /// If the player is touching a present
+        /// </summary>
+        /// <returns></returns>
         public bool HasPresent() { 
             return hasPresent; 
         }
 
-        Vector2 bigApe = new Vector2();
+        /// <summary>
+        /// The lives count of the player, keeps it private
+        /// </summary>
+        /// <returns>Lives count</returns>
+        public int GetLives() { 
+            return lives; 
+        }
+
+        /// <summary>
+        /// Used to move around the player on ice
+        /// </summary>
+        public void GetDirection(){
+            if (direction == "right"){ position.X += 5; }
+            else if (direction == "left"){ position.X -= 5; }
+            else if (direction == "down") { position.Y += 5; }
+            else if (direction == "up") { position.Y -= 5; }
+        }
+
+        public void IsOnIce(){ }
+
+        /// <summary>
+        /// Checks if the player has gone out of bounds
+        /// </summary>
+        public void OutOfBounds()
+        {
+            if (position.X < 0){ position.X = 0; }
+            if (position.X > 1000){ position.X = 1000; }
+            if (position.Y < 0){ position.Y = 0; }
+            if (position.Y > 600){ position.Y = 600; }
+        }
+
+        /// <summary>
+        /// Returns the position of the player's feet
+        /// </summary>
+        /// <returns></returns>
+        public Vector2 FeetCollision(){
+            return feetPosition;        
+        }
+
+        public void CheckHole(){
+            position = new Vector2 (10, 10);
+            feetPosition.X = position.X;
+            feetPosition.Y = position.Y + 60;
+            lives--;
+            
+        }
     }
 }
