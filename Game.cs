@@ -14,6 +14,9 @@ namespace MohawkGame2D
         Player player = new Player();
         Cube cubes = new Cube();
 
+
+        Level2 level2 = new Level2();
+
         //Game over screen when the player dies
         GameOver gameOverScreen = new GameOver();
 
@@ -27,6 +30,8 @@ namespace MohawkGame2D
             player.Setup();
             cubes.Setup();
             gameOverScreen.Setup();
+
+            level2.Setup();
         }
 
         /// <summary>
@@ -38,7 +43,11 @@ namespace MohawkGame2D
             player.Update(cubes.getDetection());
             cubes.Update(player.HasPresent());
 
-            if(player.getLives() <= 0) {gameOverScreen.Update();}
+            if(player.GetLives() <= 0) {gameOverScreen.Update();}
+            if(player.GetLives() == 14) { 
+                player.GetDirection();
+                level2.Update();
+            }
         }
     }
 

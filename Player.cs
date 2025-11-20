@@ -16,8 +16,10 @@ namespace MohawkGame2D
         Texture2D texture;
         int score;
         int lives = 3; //How many lives the player has
-
+        string direction = "";
         bool hasPresent = false;
+
+        bool onIce = false;
 
         public Player() { }
 
@@ -43,23 +45,26 @@ namespace MohawkGame2D
         /// Checks for player inputs via controller or keyboard
         /// </summary>
         void Inputs(){
-            float deadzone = 0.10f;
+            float deadzone = 0.15f;
             if ((Input.IsKeyboardKeyDown(KeyboardInput.Right) == true) || (Input.GetAnyControllerAxis(ControllerAxis.LeftX, deadzone) > 0.10))
             {
                 position.X += 10;
-
+                direction = "right";
             }
             else if ((Input.IsKeyboardKeyDown(KeyboardInput.Left) == true) || (Input.GetAnyControllerAxis(ControllerAxis.LeftX, deadzone) < -0.10))
             {
                 position.X -= 10;
+                direction = "left";
             }
             if ((Input.IsKeyboardKeyDown(KeyboardInput.Down) == true) || (Input.GetAnyControllerAxis(ControllerAxis.LeftY, deadzone) > 0.10))
             {
                 position.Y += 10;
+                direction = "down";
             }
             else if ((Input.IsKeyboardKeyDown(KeyboardInput.Up) == true) || (Input.GetAnyControllerAxis(ControllerAxis.LeftY, deadzone) < -0.10))
             {
                 position.Y -= 10;
+                direction = "up";
             }
 
             //Used to test game over
@@ -67,8 +72,22 @@ namespace MohawkGame2D
             {
                 lives = 0;
             }
+            //Used to test level 2
+            if (Input.IsKeyboardKeyDown(KeyboardInput.L) == true)
+            {
+                lives = 14;
+            }
+
+            feetPosition.X = position.X;
+            feetPosition.Y = position.Y + 60;
+
+            Console.WriteLine(feetPosition.X + ", " + feetPosition.Y);
         }
 
+        /// <summary>
+        /// Checks if the player is touching a present
+        /// </summary>
+        /// <param name="presentCollision">The point of the present</param>
         void CheckPresent(Vector2 presentCollision){
             if ((position.X + size.X > presentCollision.X - 45)&&(position.X < presentCollision.X + 60)){
                 if ((position.Y + size.Y > presentCollision.Y - 45) && (position.Y < presentCollision.Y + 65))
@@ -84,14 +103,32 @@ namespace MohawkGame2D
             }
         }
 
+        /// <summary>
+        /// If the player is touching a present
+        /// </summary>
+        /// <returns></returns>
         public bool HasPresent() { 
             return hasPresent; 
         }
 
-        public int getLives() { 
+        /// <summary>
+        /// The lives count of the player, keeps it private
+        /// </summary>
+        /// <returns>Lives count</returns>
+        public int GetLives() { 
             return lives; 
         }
 
-        Vector2 bigApe = new Vector2();
+        /// <summary>
+        /// Used to move around the player on ice
+        /// </summary>
+        public void GetDirection(){
+            if (direction == "right"){ position.X += 5; }
+            else if (direction == "left"){ position.X -= 5; }
+            else if (direction == "down") { position.Y += 5; }
+            else if (direction == "up") { position.Y -= 5; }
+        }
+
+        public void IsOnIce(){ }
     }
 }
