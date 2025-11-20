@@ -12,6 +12,7 @@ namespace MohawkGame2D
         int firstPointX = 0;
         int firstPointY = 0;
 
+
         Vector2 pointA;
         Vector2 pointB;
         Vector2 pointC;
