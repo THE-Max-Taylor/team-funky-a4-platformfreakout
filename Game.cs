@@ -48,7 +48,7 @@ namespace MohawkGame2D
         {          
             Window.ClearBackground(Color.Green);
             levelOne.update();           
-            player.Update(cubes.getDetection());
+   
             cubes.Update(player.HasPresent());
             //enemies.update();
             
