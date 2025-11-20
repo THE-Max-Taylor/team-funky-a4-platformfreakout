@@ -1,4 +1,5 @@
 ﻿// Include the namespaces (code libraries) you need below.
+//using GAME_10003_Game_Development_Foundations___2D_Game_Template__v1._4_1.MohawkGame2D;
 using System;
 using System.Numerics;
 
@@ -12,7 +13,11 @@ namespace MohawkGame2D
     {
         // Place your variables here:
         Player player = new Player();
+        Player joePlayer = new Player();
         Cube cubes = new Cube();
+        LevelOne levelOne = new LevelOne();
+        //Enemy enemies = new Enemy();
+        
 
 
         Level2 level2 = new Level2();
@@ -38,6 +43,13 @@ namespace MohawkGame2D
         ///     Update runs every frame.
         /// </summary>
         public void Update()
+        {          
+            Window.ClearBackground(Color.Green);
+            levelOne.update();           
+            player.Update(cubes.getDetection());
+            cubes.Update(player.HasPresent());
+            //enemies.update();
+            
         {
             Window.ClearBackground(Color.White);
             
