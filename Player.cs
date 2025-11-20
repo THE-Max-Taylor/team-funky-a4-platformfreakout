@@ -15,7 +15,7 @@ namespace MohawkGame2D
         Vector2 feetSize = new Vector2(100, 40); //Used to check collision closer to legs and feet
         Texture2D texture;
         int score;
-        int lives = 3; //How many lives the player has
+        int lives = 3000; //How many lives the player has
         string direction = "";
         bool hasPresent = false;
 
@@ -35,8 +35,10 @@ namespace MohawkGame2D
         /// <summary>
         /// Update runs every frame.
         /// </summary>
-        public void Update(Vector2 presentCollision) {
+        public void Update(Vector2 presentCollision, bool holeCollision) {
+            if (holeCollision == true) {CheckHole();}
             Inputs();
+
             CheckPresent(presentCollision);
             Graphics.Draw(texture, position);
         }
@@ -82,6 +84,7 @@ namespace MohawkGame2D
             feetPosition.Y = position.Y + 60;
 
             Console.WriteLine(feetPosition.X + ", " + feetPosition.Y);
+            OutOfBounds();
         }
 
         /// <summary>
@@ -130,5 +133,32 @@ namespace MohawkGame2D
         }
 
         public void IsOnIce(){ }
+
+        /// <summary>
+        /// Checks if the player has gone out of bounds
+        /// </summary>
+        public void OutOfBounds()
+        {
+            if (position.X < 0){ position.X = 0; }
+            if (position.X > 1000){ position.X = 1000; }
+            if (position.Y < 0){ position.Y = 0; }
+            if (position.Y > 600){ position.Y = 600; }
+        }
+
+        /// <summary>
+        /// Returns the position of the player's feet
+        /// </summary>
+        /// <returns></returns>
+        public Vector2 FeetCollision(){
+            return feetPosition;        
+        }
+
+        public void CheckHole(){
+            position = new Vector2 (10, 10);
+            feetPosition.X = position.X;
+            feetPosition.Y = position.Y + 60;
+            lives--;
+            
+        }
     }
 }

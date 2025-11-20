@@ -40,15 +40,22 @@ namespace MohawkGame2D
         public void Update()
         {
             Window.ClearBackground(Color.White);
-            player.Update(cubes.getDetection());
+            
             cubes.Update(player.HasPresent());
 
-            if(player.GetLives() <= 0) {gameOverScreen.Update();}
+          
             if(player.GetLives() == 14) { 
                 player.GetDirection();
-                level2.Update();
+                level2.Update(player.FeetCollision());
             }
+            
+            
+            player.Update(cubes.getDetection(), level2.GetDetection());
+
+            if (player.GetLives() <= 0) { gameOverScreen.Update(); }
         }
+
+
     }
 
 }

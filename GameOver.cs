@@ -39,14 +39,15 @@ namespace MohawkGame2D
             Text.Draw("R.I.P", new Vector2(483, 375));
 
             //Draws falling snowflakes
-            Draw.LineColor = Color.Black;
+            Color outline = new Color("#CECECE");
+            Draw.LineColor = outline;
             Draw.FillColor = Color.White;
             for (int i = 0; i < snow.Length; i++) {
                 if((i > 200)){ snow[i].Y++; }
                 if((i >  400)){ snow[i].Y++; }
                 snow[i].Y++;
                 if(snow[i].Y > 800) { snow[i].Y = 0; }
-                Draw.Circle(snow[i], 2);
+                Draw.Circle(snow[i], 1);
             }
 
             //Uncomment once incorporated restart
