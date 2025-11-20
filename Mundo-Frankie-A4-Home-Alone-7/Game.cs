@@ -26,7 +26,9 @@ namespace MohawkGame2D
         /// </summary>
         public void Update()
         {
-
+                // speed = new Vector2(whatever the fuck, the same thing);
+                // angle = Vector2.Normalize(enemy.pos - player.pos);
+                // enemy.pos -= angle * speed
         }
     }
 
