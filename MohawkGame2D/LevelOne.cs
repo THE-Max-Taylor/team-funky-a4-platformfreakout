@@ -1,4 +1,4 @@
-﻿using GAME_10003_Game_Development_Foundations___2D_Game_Template__v1._4_1.MohawkGame2D;
+﻿//using GAME_10003_Game_Development_Foundations___2D_Game_Template__v1._4_1.MohawkGame2D;
 using Raylib_cs;
 using System;
 using System.Collections.Generic;
@@ -22,10 +22,12 @@ namespace MohawkGame2D
         public void setup()
         {
             textureYay = Graphics.LoadTexture("MohawkGame2D\\Images\\Lava.png");
+           
         }
 
         public void update()
-        {           
+        {
+            
             //the obstacles
             Draw.LineColor = Color.Yellow;
             Draw.FillColor = Color.Yellow;

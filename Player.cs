@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace MohawkGame2D
 {
-    internal class Player
+    public class Player
     {
-        Vector2 position = new Vector2(100, 100);
+        public Vector2 position = new Vector2(100, 100);
         Vector2 size;
         public Vector2 feetPosition; //Used to check collision closer to legs and feet
         public Vector2 feetSize = new Vector2(100, 40); //Used to check collision closer to legs and feet
