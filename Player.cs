@@ -80,6 +80,12 @@ namespace MohawkGame2D
                 lives = 14;
             }
 
+            //Used to test level 1
+            if (Input.IsKeyboardKeyDown(KeyboardInput.O) == true)
+            {
+                lives = 5;
+            }
+
             feetPosition.X = position.X;
             feetPosition.Y = position.Y + 60;
 

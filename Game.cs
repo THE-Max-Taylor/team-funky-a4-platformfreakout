@@ -38,7 +38,7 @@ namespace MohawkGame2D
             player.Setup();
             cubes.Setup();
             gameOverScreen.Setup();
-
+            level1.Setup();
             level2.Setup();
         }
 
@@ -48,8 +48,8 @@ namespace MohawkGame2D
         public void Update()
         {
             Window.ClearBackground(Color.Green);
-                       
-           
+
+
             cubes.Update(player.HasPresent());
             //enemies.update();
 
@@ -61,7 +61,7 @@ namespace MohawkGame2D
                 if (player.GetLives() == 5)
                 {
 
-                    level1.Update();
+                    level1.Update(player.FeetCollision());
                 }
                 if (player.GetLives() == 14)
                 {
@@ -81,6 +81,7 @@ namespace MohawkGame2D
             }
 
 
+        }
     }
 
 }

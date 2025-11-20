@@ -17,15 +17,15 @@ namespace MohawkGame2D
         Vector2 exitPos = new Vector2(800, 350);
         Texture2D textureYay;
         Presents presentsYay = new Presents();
-        Player joePlayer = new Player();
 
-        public void setup()
+
+        public void Setup()
         {
             textureYay = Graphics.LoadTexture("MohawkGame2D\\Images\\Lava.png");
            
         }
 
-        public void update()
+        public void Update(Vector2 feetPosition)
         {
             
             //the obstacles
@@ -61,10 +61,10 @@ namespace MohawkGame2D
             float topEdge1 = (badRectPos.Y - 550);
             float bottomEdge1 = (badRectPos.Y - 550) + badRectSize.Y;
 
-            float playerEdge = joePlayer.feetPosition.X;
-            float playerRightEdge = joePlayer.feetPosition.X + joePlayer.feetSize.X;
-            float playerTop = joePlayer.feetPosition.Y;
-            float playerBottom = joePlayer.feetPosition.Y + joePlayer.feetSize.Y;
+            float playerEdge = feetPosition.X;
+            float playerRightEdge = feetPosition.X + 100;
+            float playerTop = feetPosition.Y;
+            float playerBottom = feetPosition.Y + 60;
 
             bool doesOverlapLeft = leftEdge1 < playerRightEdge;
             bool doesOverlapRight = rightEdge1 > playerEdge;
