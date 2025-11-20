@@ -39,7 +39,7 @@ namespace MohawkGame2D
             levelOne.update();           
             player.Update(cubes.getDetection());
             cubes.Update(player.HasPresent());
-            enemies.update();
+            //enemies.update();
             
         }
     }
