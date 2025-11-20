@@ -12,14 +12,14 @@ namespace MohawkGame2D
     public class Game
     {
 
-        
+
         // Place your variables here:
         Player player = new Player();
         Player joePlayer = new Player();
         Cube cubes = new Cube();
         LevelOne levelOne = new LevelOne();
         //Enemy enemies = new Enemy();
-        
+
 
 
         Level2 level2 = new Level2();
@@ -45,35 +45,36 @@ namespace MohawkGame2D
         ///     Update runs every frame.
         /// </summary>
         public void Update()
-        {          
+        {
             Window.ClearBackground(Color.Green);
-            levelOne.update();           
-            player.Update(cubes.getDetection());
+            levelOne.update();
+
             cubes.Update(player.HasPresent());
             //enemies.update();
-            
-        {
-            Window.ClearBackground(Color.White);
-            
-            cubes.Update(player.HasPresent());
 
-          
-            if(player.GetLives() == 14) { 
-                player.GetDirection();
-                level2.Update(player.FeetCollision());
-            }
-            
-            
-            player.Update(cubes.getDetection(), level2.GetDetection());
+            {
+                Window.ClearBackground(Color.White);
 
-            if (player.GetLives() <= 0) { gameOverScreen.Update(); }
+                cubes.Update(player.HasPresent());
 
-                            // speed = new Vector2(whatever the fuck, the same thing);
+
+                if (player.GetLives() == 14)
+                {
+                    player.GetDirection();
+                    level2.Update(player.FeetCollision());
+                }
+
+
+                player.Update(cubes.getDetection(), level2.GetDetection());
+
+                if (player.GetLives() <= 0) { gameOverScreen.Update(); }
+
+                // speed = new Vector2(whatever the fuck, the same thing);
                 // angle = Vector2.Normalize(enemy.pos - player.pos);
                 // enemy.pos -= angle * speed
+            }
+
+
         }
-
-
-    }
-
+    } 
 }
