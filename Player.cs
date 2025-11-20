@@ -15,7 +15,7 @@ namespace MohawkGame2D
         public Vector2 feetSize = new Vector2(100, 40); //Used to check collision closer to legs and feet
         Texture2D texture;
         int score;
-        int lives = 3000; //How many lives the player has
+        int lives = 0; //How many lives the player has
         string direction = "";
         bool hasPresent = false;
 
@@ -75,22 +75,27 @@ namespace MohawkGame2D
             {
                 lives = 0;
             }
-            //Used to test level 2
-            if (Input.IsKeyboardKeyDown(KeyboardInput.L) == true)
-            {
-                lives = 14;
-            }
+ 
 
             //Used to test level 1
-            if (Input.IsKeyboardKeyDown(KeyboardInput.O) == true)
+            if ((score >= 50) && (lives == 0))
             {
-                lives = 5;
+                lives = 1;
+            }
+
+            //Used to test level 2
+            if ((score >= 100)&&(lives == 1))
+            {
+                lives = 2;
+            }
+            if ((score >= 250) && (lives == 2))
+            {
+                lives = 3;
             }
 
             feetPosition.X = position.X;
             feetPosition.Y = position.Y + 60;
 
-            Console.WriteLine(feetPosition.X + ", " + feetPosition.Y);
             OutOfBounds();
         }
 
@@ -164,7 +169,7 @@ namespace MohawkGame2D
             position = new Vector2 (10, 10);
             feetPosition.X = position.X;
             feetPosition.Y = position.Y + 60;
-            lives--;
+            lives -= 100;
             
         }
     }
