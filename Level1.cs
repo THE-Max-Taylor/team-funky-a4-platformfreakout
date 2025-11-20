@@ -32,14 +32,15 @@ namespace MohawkGame2D
             //the obstacles
             Draw.LineColor = Color.Yellow;
             Draw.FillColor = Color.Yellow;
+            
+            Draw.Rectangle(badRectPos.X + 500, badRectPos.Y - 550, badRectSize.X+200, badRectSize.Y);
             Draw.Rectangle(badRectPos.X, badRectPos.Y, badRectSize.X-50, badRectSize.Y);
+
+
             Draw.Rectangle(badRectPos.X, badRectPos.Y-150, badRectSize.X-50, badRectSize.Y);
             Draw.Rectangle(badRectPos.X+180, badRectPos.Y + 140, badRectSize.X + 1000, badRectSize.Y-130);                       
             Draw.Rectangle(badRectPos.X + 250, badRectPos.Y - 30, badRectSize.X + 300, badRectSize.Y - 130);
             Draw.Rectangle(badRectPos.X + 770, badRectPos.Y - 30, badRectSize.X + 300, badRectSize.Y - 130);
-
-            Draw.Rectangle(badRectPos.X + 500, badRectPos.Y - 550, badRectSize.X+200, badRectSize.Y);
-
             Draw.Rectangle(badRectPos.X + 900, badRectPos.Y - 650, badRectSize.X, badRectSize.Y+40);
             Draw.Rectangle(badRectPos.X, badRectPos.Y-600, badRectSize.X - 50, badRectSize.Y);
             Draw.Rectangle(badRectPos.X, badRectPos.Y-600, badRectSize.X + 150, badRectSize.Y-150);
@@ -79,12 +80,33 @@ namespace MohawkGame2D
             }
 
 
+             //compute collision for obstacle
+             leftEdge1 = badRectPos.X;
+             rightEdge1 = (badRectPos.X) + (badRectSize.X - 50);
+             topEdge1 = (badRectPos.Y);
+             bottomEdge1 = (badRectPos.Y) + badRectSize.Y ;
+            Console.WriteLine(badRectSize.Y);
+             playerEdge = feetPosition.X;
+             playerRightEdge = feetPosition.X + 100;
+             playerTop = feetPosition.Y;
+             playerBottom = feetPosition.Y + 60;
+             doesOverlapLeft = leftEdge1 < playerRightEdge;
+             doesOverlapRight = rightEdge1 > playerEdge;
+             doesOverlapTop = topEdge1 < playerBottom;
+             doesOverlapBottom = bottomEdge1 > playerTop;
+
+            doesOverlap = doesOverlapLeft && doesOverlapRight && doesOverlapTop && doesOverlapBottom;
+            if (doesOverlap)
+            {
+                onPit = true;
+            }
+
 
         }
 
                 public bool GetDetection()
-        {
-            return onPit;
-        }
+                 {
+                    return onPit;
+                }
     }
 }
