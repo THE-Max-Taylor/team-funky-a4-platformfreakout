@@ -16,7 +16,7 @@ namespace MohawkGame2D
         Player joePlayer = new Player();
         Cube cubes = new Cube();
         LevelOne levelOne = new LevelOne();
-        Enemy enemies = new Enemy();
+        //Enemy enemies = new Enemy();
         
 
         /// <summary>
