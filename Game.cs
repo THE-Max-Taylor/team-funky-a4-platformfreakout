@@ -15,9 +15,8 @@ namespace MohawkGame2D
 
         // Place your variables here:
         Player player = new Player();
-        Player joePlayer = new Player();
+
         Cube cubes = new Cube();
-        Level1 levelOne = new Level1();
         //Enemy enemies = new Enemy();
 
 
@@ -71,7 +70,7 @@ namespace MohawkGame2D
 
 
 
-                player.Update(cubes.getDetection(), level2.GetDetection());
+                player.Update(cubes.getDetection(), level1.GetDetection(), level2.GetDetection());
 
                 if (player.GetLives() <= 0) { gameOverScreen.Update(); }
 

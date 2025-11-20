@@ -17,6 +17,7 @@ namespace MohawkGame2D
         Vector2 exitPos = new Vector2(800, 350);
         Texture2D textureYay;
         Presents presentsYay = new Presents();
+        bool onPit = false;
 
 
         public void Setup()
@@ -59,8 +60,8 @@ namespace MohawkGame2D
             float leftEdge1 = badRectPos.X + 500;
             float rightEdge1 = (badRectPos.X + 500) + (badRectSize.X + 200);
             float topEdge1 = (badRectPos.Y - 550);
-            float bottomEdge1 = (badRectPos.Y - 550) + badRectSize.Y;
-
+            float bottomEdge1 = (badRectPos.Y - 550) + badRectSize.Y - 120;
+            Console.WriteLine(badRectSize.Y);
             float playerEdge = feetPosition.X;
             float playerRightEdge = feetPosition.X + 100;
             float playerTop = feetPosition.Y;
@@ -74,9 +75,16 @@ namespace MohawkGame2D
             bool doesOverlap = doesOverlapLeft && doesOverlapRight && doesOverlapTop && doesOverlapBottom;
             if (doesOverlap)
             {
-                Console.WriteLine("YEOWCH");
+                onPit = true;
             }
 
+
+
+        }
+
+                public bool GetDetection()
+        {
+            return onPit;
         }
     }
 }

@@ -35,8 +35,9 @@ namespace MohawkGame2D
         /// <summary>
         /// Update runs every frame.
         /// </summary>
-        public void Update(Vector2 presentCollision, bool holeCollision) {
+        public void Update(Vector2 presentCollision, bool holeCollision, bool holeCollision2) {
             if (holeCollision == true) {CheckHole();}
+            if (holeCollision2 == true) {CheckHole();}
             Inputs();
 
             CheckPresent(presentCollision);
