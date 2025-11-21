@@ -21,8 +21,7 @@ namespace MohawkGame2D
 
         public void Update()
         {
-            Vector2 presentsPos = new Vector2(0, 0);
-            Vector2 presentsSize = new Vector2(50, 40);
+            
             Draw.FillColor = Color.Red;
             Draw.LineColor = Color.Black;
             //1
