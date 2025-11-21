@@ -96,7 +96,7 @@ namespace MohawkGame2D
             feetPosition.X = position.X;
             feetPosition.Y = position.Y + 60;
 
-            OutOfBounds();
+            //OutOfBounds();
         }
 
         /// <summary>

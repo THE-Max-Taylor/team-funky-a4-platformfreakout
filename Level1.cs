@@ -35,13 +35,13 @@ namespace MohawkGame2D
             
             Draw.Rectangle(badRectPos.X + 500, badRectPos.Y - 550, badRectSize.X+200, badRectSize.Y);
             Draw.Rectangle(badRectPos.X, badRectPos.Y, badRectSize.X-50, badRectSize.Y);
-
-
-            Draw.Rectangle(badRectPos.X, badRectPos.Y-150, badRectSize.X-50, badRectSize.Y);
-            Draw.Rectangle(badRectPos.X+180, badRectPos.Y + 140, badRectSize.X + 1000, badRectSize.Y-130);                       
+            Draw.Rectangle(badRectPos.X, badRectPos.Y-150, badRectSize.X-50, badRectSize.Y);           
+            Draw.Rectangle(badRectPos.X+180, badRectPos.Y + 140, badRectSize.X + 1000, badRectSize.Y-130);             
             Draw.Rectangle(badRectPos.X + 250, badRectPos.Y - 30, badRectSize.X + 300, badRectSize.Y - 130);
             Draw.Rectangle(badRectPos.X + 770, badRectPos.Y - 30, badRectSize.X + 300, badRectSize.Y - 130);
+
             Draw.Rectangle(badRectPos.X + 900, badRectPos.Y - 650, badRectSize.X, badRectSize.Y+40);
+
             Draw.Rectangle(badRectPos.X, badRectPos.Y-600, badRectSize.X - 50, badRectSize.Y);
             Draw.Rectangle(badRectPos.X, badRectPos.Y-600, badRectSize.X + 150, badRectSize.Y-150);
             Draw.Rectangle(badRectPos.X+200, badRectPos.Y - 600, badRectSize.X, badRectSize.Y + 150);
@@ -54,20 +54,22 @@ namespace MohawkGame2D
 
             //draw the presents!!
             presentsYay.update();
-           
-            //Graphics.Draw(textureYay, );
 
-            //compute collision for obstacles
-            float leftEdge1 = badRectPos.X + 500;
-            float rightEdge1 = (badRectPos.X + 500) + (badRectSize.X + 200);
-            float topEdge1 = (badRectPos.Y - 550);
-            float bottomEdge1 = (badRectPos.Y - 550) + badRectSize.Y - 120;
-            Console.WriteLine(badRectSize.Y);
+            //compute collision boundaries for player 
             float playerEdge = feetPosition.X;
             float playerRightEdge = feetPosition.X + 100;
             float playerTop = feetPosition.Y;
             float playerBottom = feetPosition.Y + 60;
 
+
+            //compute collision boundaries for obstacle 1
+            float leftEdge1 = badRectPos.X + 500;
+            float rightEdge1 = (badRectPos.X + 500) + (badRectSize.X + 200);
+            float topEdge1 = (badRectPos.Y - 550);
+            float bottomEdge1 = (badRectPos.Y - 550) + badRectSize.Y - 120;
+           
+           
+            //check if things are colliding
             bool doesOverlapLeft = leftEdge1 < playerRightEdge;
             bool doesOverlapRight = rightEdge1 > playerEdge;
             bool doesOverlapTop = topEdge1 < playerBottom;
@@ -76,29 +78,126 @@ namespace MohawkGame2D
             bool doesOverlap = doesOverlapLeft && doesOverlapRight && doesOverlapTop && doesOverlapBottom;
             if (doesOverlap)
             {
-                onPit = true;
+                Draw.FillColor = Color.Blue;
+                Draw.Circle(20, 20, 50);
+                //onPit = true;
             }
 
+            //compute collision for obstacle 2
+            leftEdge1 = badRectPos.X;
+            rightEdge1 = (badRectPos.X) + (badRectSize.X - 50);
+            topEdge1 = (badRectPos.Y - 150);
+            bottomEdge1 = (badRectPos.Y) + badRectSize.Y;
 
-             //compute collision for obstacle
-             leftEdge1 = badRectPos.X;
-             rightEdge1 = (badRectPos.X) + (badRectSize.X - 50);
-             topEdge1 = (badRectPos.Y);
-             bottomEdge1 = (badRectPos.Y) + badRectSize.Y ;
-            Console.WriteLine(badRectSize.Y);
-             playerEdge = feetPosition.X;
-             playerRightEdge = feetPosition.X + 100;
-             playerTop = feetPosition.Y;
-             playerBottom = feetPosition.Y + 60;
-             doesOverlapLeft = leftEdge1 < playerRightEdge;
-             doesOverlapRight = rightEdge1 > playerEdge;
-             doesOverlapTop = topEdge1 < playerBottom;
-             doesOverlapBottom = bottomEdge1 > playerTop;
+            doesOverlapLeft = leftEdge1 < playerRightEdge;
+            doesOverlapRight = rightEdge1 > playerEdge;
+            doesOverlapTop = topEdge1 < playerBottom;
+            doesOverlapBottom = bottomEdge1 > playerTop;
 
             doesOverlap = doesOverlapLeft && doesOverlapRight && doesOverlapTop && doesOverlapBottom;
             if (doesOverlap)
             {
-                onPit = true;
+                Draw.FillColor = Color.Blue;
+                Draw.Circle(20, 20, 50);
+                //onPit = true;
+            }
+
+            //compute collision for obstacle 3
+            leftEdge1 = badRectPos.X;
+            rightEdge1 = (badRectPos.X) + (badRectSize.X - 50);
+            topEdge1 = (badRectPos.Y);
+            bottomEdge1 = (badRectPos.Y) + badRectSize.Y;
+
+            doesOverlapLeft = leftEdge1 < playerRightEdge;
+            doesOverlapRight = rightEdge1 > playerEdge;
+            doesOverlapTop = topEdge1 < playerBottom;
+            doesOverlapBottom = bottomEdge1 > playerTop;
+
+            doesOverlap = doesOverlapLeft && doesOverlapRight && doesOverlapTop && doesOverlapBottom;
+            if (doesOverlap)
+            {
+                Draw.FillColor = Color.Blue;
+                Draw.Circle(20, 20, 50);
+                //onPit = true;
+            }
+
+            //compute collision for obstacle 4           
+            leftEdge1 = badRectPos.X + 180;
+            rightEdge1 = (badRectPos.X + 180) + (badRectSize.X + 1000);
+            topEdge1 = (badRectPos.Y+50);
+            bottomEdge1 = (badRectPos.Y+50) + badRectSize.Y - 130;
+
+            doesOverlapLeft = leftEdge1 < playerRightEdge;
+            doesOverlapRight = rightEdge1 > playerEdge;
+            doesOverlapTop = topEdge1 < playerBottom;
+            doesOverlapBottom = bottomEdge1 > playerTop;
+
+            doesOverlap = doesOverlapLeft && doesOverlapRight && doesOverlapTop && doesOverlapBottom;
+            if (doesOverlap)
+            {
+                Draw.FillColor = Color.Blue;
+                Draw.Circle(20, 20, 50);
+                //onPit = true;
+            }
+
+            //compute collision for obstacle 5
+            leftEdge1 = badRectPos.X + 250;
+            rightEdge1 = (badRectPos.X + 250) + (badRectSize.X + 290);
+            topEdge1 = (badRectPos.Y - 130);
+            bottomEdge1 = (badRectPos.Y - 130) + badRectSize.Y - 150;
+
+
+            doesOverlapLeft = leftEdge1 < playerRightEdge;
+            doesOverlapRight = rightEdge1 > playerEdge;
+            doesOverlapTop = topEdge1 < playerBottom;
+            doesOverlapBottom = bottomEdge1 > playerTop;
+
+            doesOverlap = doesOverlapLeft && doesOverlapRight && doesOverlapTop && doesOverlapBottom;
+            if (doesOverlap)
+            {
+                Draw.FillColor = Color.Blue;
+                Draw.Circle(20, 20, 50);
+                //onPit = true;
+
+            }
+
+            //compute collision for obstacle 6          
+            leftEdge1 = badRectPos.X + 770;
+            rightEdge1 = (badRectPos.X + 770) + (badRectSize.X + 300);
+            topEdge1 = (badRectPos.Y - 130);
+            bottomEdge1 = (badRectPos.Y - 130) + badRectSize.Y - 160;
+
+            doesOverlapLeft = leftEdge1 < playerRightEdge;
+            doesOverlapRight = rightEdge1 > playerEdge;
+            doesOverlapTop = topEdge1 < playerBottom;
+            doesOverlapBottom = bottomEdge1 > playerTop;
+
+            doesOverlap = doesOverlapLeft && doesOverlapRight && doesOverlapTop && doesOverlapBottom;
+            if (doesOverlap)
+            {
+                Draw.FillColor = Color.Blue;
+                Draw.Circle(20, 20, 50);
+                //onPit = true;
+            }
+
+            //badRectPos.X + 900, badRectPos.Y - 650, badRectSize.X, badRectSize.Y + 40
+            //compute collision for obstacle 7
+            leftEdge1 = badRectPos.X + 900;
+            rightEdge1 = (badRectPos.X + 900) + (badRectSize.X + 15);
+            topEdge1 = (badRectPos.Y - 730);
+            bottomEdge1 = (badRectPos.Y - 730) + badRectSize.Y;
+
+            doesOverlapLeft = leftEdge1 < playerRightEdge;
+            doesOverlapRight = rightEdge1 > playerEdge;
+            doesOverlapTop = topEdge1 < playerBottom;
+            doesOverlapBottom = bottomEdge1 > playerTop;
+
+            doesOverlap = doesOverlapLeft && doesOverlapRight && doesOverlapTop && doesOverlapBottom;
+            if (doesOverlap)
+            {
+                Draw.FillColor = Color.Blue;
+                Draw.Circle(20, 20, 50);
+                //onPit = true;
             }
 
 
