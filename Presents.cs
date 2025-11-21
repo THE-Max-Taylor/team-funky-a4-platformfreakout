@@ -19,24 +19,36 @@ namespace MohawkGame2D
             textures = Graphics.LoadTexture("MohawkGame2D\\Images\\Presents.png");
         }
 
-        public void update()
+        public void Update()
         {
             Vector2 presentsPos = new Vector2(0, 0);
             Vector2 presentsSize = new Vector2(50, 40);
             Draw.FillColor = Color.Red;
             Draw.LineColor = Color.Black;
+            //1
             Draw.Rectangle(presentsPos.X + 100, presentsPos.Y + 100, presentsSize.X, presentsSize.Y);
+            //2
             Draw.Rectangle(presentsPos.X + 400,presentsPos.Y + 100, presentsSize.X, presentsSize.Y);
+            //3
             Draw.Rectangle(presentsPos.X + 400, presentsPos.Y + 400, presentsSize.X, presentsSize.Y);
+            //4
             Draw.Rectangle(presentsPos.X + 930, presentsPos.Y + 670, presentsSize.X, presentsSize.Y);
+            //5
             Draw.Rectangle(presentsPos.X + 800, presentsPos.Y + 670, presentsSize.X, presentsSize.Y);
+            //6
             Draw.Rectangle(presentsPos.X + 670, presentsPos.Y + 670, presentsSize.X, presentsSize.Y);
+            //7
             Draw.Rectangle(presentsPos.X + 670, presentsPos.Y, presentsSize.X, presentsSize.Y);
+            //8
             Draw.Rectangle(presentsPos.X + 1030, presentsPos.Y, presentsSize.X, presentsSize.Y);
+            //9
             Draw.Rectangle(presentsPos.X + 160, presentsPos.Y + 550, presentsSize.X, presentsSize.Y);
+            //10
             Draw.Rectangle(presentsPos.X + 950, presentsPos.Y + 500, presentsSize.X, presentsSize.Y);
 
-            Graphics.Draw(textures, presentsPos.X+100, presentsPos.Y+100);           
+            //Graphics.Draw(textures, presentsPos.X+100, presentsPos.Y+100);
+            
+            
 
         }
     }

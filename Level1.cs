@@ -18,6 +18,7 @@ namespace MohawkGame2D
         Texture2D textureYay;
         Presents presentsYay = new Presents();
         bool onPit = false;
+        int pointsCount = 0;
 
 
         public void Setup()
@@ -52,7 +53,7 @@ namespace MohawkGame2D
             Draw.Rectangle(exitPos, exitSize);
 
             //draw the presents!!
-            presentsYay.update();
+            presentsYay.Update();
 
             //compute collision boundaries for player 
             float playerEdge = feetPosition.X;
@@ -235,8 +236,7 @@ namespace MohawkGame2D
                     Draw.Circle(20, 20, 50);
                     //onPit = true;
                 }
-
-            //badRectPos.X + 200, badRectPos.Y - 600, badRectSize.X, badRectSize.Y + 150
+            
             //compute collision for obstacle 10        
             leftEdge1 = badRectPos.X + 200;
             rightEdge1 = (badRectPos.X + 200) + (badRectSize.X);
@@ -256,10 +256,39 @@ namespace MohawkGame2D
                 //onPit = true;
             }
 
+            // presents collision
+            
+            //present #1
+            float presentsEdge = presentsYay.presentsPos.X + 100;
+            float presentsRightEdge = (presentsYay.presentsPos.X + 100) + (presentsYay.presentsSize.X);
+            float presentsTopEdge = (presentsYay.presentsPos.Y);
+            float presentsBottomEdge = (presentsYay.presentsPos.Y) + presentsYay.presentsSize.Y;
 
+            bool presentOverlapLeft = presentsEdge < playerRightEdge;
+            bool presentOverlapRight = presentsRightEdge > playerEdge;
+            bool presentOverlapTop = presentsTopEdge < playerBottom;
+            bool presentOverlapBottom = presentsBottomEdge > playerTop;
 
+            bool doesPresentOverlap = presentOverlapLeft && presentOverlapRight && presentOverlapTop && presentOverlapBottom;
+            if (doesPresentOverlap)
+            {
+                Draw.FillColor = Color.Red;
+                Draw.Circle(20, 100, 50);
+                pointsCount++;
+                Console.WriteLine($"points: {pointsCount}");
 
+                if (doesPresentOverlap)
+                {
+                    pointsCount--;
+                }
+                
+            }
 
+            //present #2
+            presentsEdge = presentsYay.presentsPos.X + 100;
+            presentsRightEdge = (presentsYay.presentsPos.X + 100) + (presentsYay.presentsSize.X);
+            presentsTopEdge = (presentsYay.presentsPos.Y);
+            presentsBottomEdge = (presentsYay.presentsPos.Y) + presentsYay.presentsSize.Y;
 
 
 
