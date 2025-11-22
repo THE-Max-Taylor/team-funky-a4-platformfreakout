@@ -19,8 +19,6 @@ namespace MohawkGame2D
         Cube cubes = new Cube();
         //Enemy enemies = new Enemy();
 
-
-
         Level1 level1 = new Level1();
         Level2 level2 = new Level2();
         FinalLevel level3 = new FinalLevel();
@@ -72,7 +70,7 @@ namespace MohawkGame2D
                     level3.Update();
                 }
 
-
+                
                 player.Update(cubes.getDetection(), level1.GetDetection(), level2.GetDetection());
 
                 if (player.GetLives() <= -1) { gameOverScreen.Update(); }

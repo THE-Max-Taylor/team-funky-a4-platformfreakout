@@ -18,6 +18,7 @@ namespace MohawkGame2D
         Texture2D textureYay;
         Presents presentsYay = new Presents();
         bool onPit = false;
+
         
         bool present1Collected = false;
         bool present2Collected = false;
@@ -30,6 +31,9 @@ namespace MohawkGame2D
         bool present9Collected = false;
         bool present10Collected = false;
 
+        // integer that helps game.cs determine whether or not the scene can change.
+        public int theExit = 0;
+
 
         public void Setup()
         {
@@ -39,7 +43,8 @@ namespace MohawkGame2D
 
         public void Update(Vector2 feetPosition)
         {
-            
+            Window.ClearBackground(Color.White);
+
             //the obstacles
             Draw.LineColor = Color.Yellow;
             Draw.FillColor = Color.Yellow;
@@ -84,9 +89,8 @@ namespace MohawkGame2D
             bool doesOverlap = doesOverlapLeft && doesOverlapRight && doesOverlapTop && doesOverlapBottom;
             if (doesOverlap)
             {
-                Draw.FillColor = Color.Blue;
-                Draw.Circle(20, 20, 50);
-                //onPit = true;
+                
+                onPit = true;
             }
 
             //compute collision for obstacle 2
@@ -103,9 +107,8 @@ namespace MohawkGame2D
             doesOverlap = doesOverlapLeft && doesOverlapRight && doesOverlapTop && doesOverlapBottom;
             if (doesOverlap)
             {
-                Draw.FillColor = Color.Blue;
-                Draw.Circle(20, 20, 50);
-                //onPit = true;
+               
+                onPit = true;
             }
 
             //compute collision for obstacle 3
@@ -122,9 +125,8 @@ namespace MohawkGame2D
             doesOverlap = doesOverlapLeft && doesOverlapRight && doesOverlapTop && doesOverlapBottom;
             if (doesOverlap)
             {
-                Draw.FillColor = Color.Blue;
-                Draw.Circle(20, 20, 50);
-                //onPit = true;
+                
+                onPit = true;
             }
 
             //compute collision for obstacle 4           
@@ -141,9 +143,8 @@ namespace MohawkGame2D
             doesOverlap = doesOverlapLeft && doesOverlapRight && doesOverlapTop && doesOverlapBottom;
             if (doesOverlap)
             {
-                Draw.FillColor = Color.Blue;
-                Draw.Circle(20, 20, 50);
-                //onPit = true;
+                
+                onPit = true;
             }
 
             //compute collision for obstacle 5
@@ -161,9 +162,7 @@ namespace MohawkGame2D
             doesOverlap = doesOverlapLeft && doesOverlapRight && doesOverlapTop && doesOverlapBottom;
             if (doesOverlap)
             {
-                Draw.FillColor = Color.Blue;
-                Draw.Circle(20, 20, 50);
-                //onPit = true;
+                onPit = true;
             }
 
             //compute collision for obstacle 6          
@@ -180,9 +179,8 @@ namespace MohawkGame2D
             doesOverlap = doesOverlapLeft && doesOverlapRight && doesOverlapTop && doesOverlapBottom;
             if (doesOverlap)
             {
-                Draw.FillColor = Color.Blue;
-                Draw.Circle(20, 20, 50);
-                //onPit = true;
+                
+                onPit = true;
             }
 
             
@@ -200,9 +198,8 @@ namespace MohawkGame2D
             doesOverlap = doesOverlapLeft && doesOverlapRight && doesOverlapTop && doesOverlapBottom;
             if (doesOverlap)
             {
-                Draw.FillColor = Color.Blue;
-                Draw.Circle(20, 20, 50);
-                //onPit = true;
+                
+                onPit = true;
             }
 
             //compute collision for obstacle 8
@@ -219,9 +216,8 @@ namespace MohawkGame2D
             doesOverlap = doesOverlapLeft && doesOverlapRight && doesOverlapTop && doesOverlapBottom;
             if (doesOverlap)
             {
-                Draw.FillColor = Color.Blue;
-                Draw.Circle(20, 20, 50);
-                //onPit = true;
+                
+                onPit = true;
             }
 
                 //compute collision for obstacle 9               
@@ -238,9 +234,8 @@ namespace MohawkGame2D
                 doesOverlap = doesOverlapLeft && doesOverlapRight && doesOverlapTop && doesOverlapBottom;
                 if (doesOverlap)
                 {
-                    Draw.FillColor = Color.Blue;
-                    Draw.Circle(20, 20, 50);
-                    //onPit = true;
+                    
+                    onPit = true;
                 }
             
             //compute collision for obstacle 10        
@@ -257,9 +252,8 @@ namespace MohawkGame2D
             doesOverlap = doesOverlapLeft && doesOverlapRight && doesOverlapTop && doesOverlapBottom;
             if (doesOverlap)
             {
-                Draw.FillColor = Color.Blue;
-                Draw.Circle(20, 20, 50);
-                //onPit = true;
+                
+                onPit = true;
             }
 
 
@@ -283,7 +277,7 @@ namespace MohawkGame2D
                 Draw.Rectangle(presentsYay.presentsPos.X + 100, presentsYay.presentsPos.Y + 100, presentsYay.presentsSize.X, presentsYay.presentsSize.Y);
                 present1Collected = true;                                                                       
             }
-            //Console.WriteLine($"collected 1? {present1Collected}");
+           
 
             //present #2          
             presentsEdge = presentsYay.presentsPos.X + 400;
@@ -305,7 +299,7 @@ namespace MohawkGame2D
                 present2Collected = true;            
 
             }
-            //Console.WriteLine($"collected 2? {present1Collected}");
+           
 
             //present #3
             presentsEdge = presentsYay.presentsPos.X + 400;
@@ -471,14 +465,16 @@ namespace MohawkGame2D
             bool isAllGiftsCollected = present1Collected && present2Collected && present3Collected && present4Collected && present5Collected && present6Collected && present7Collected && present8Collected && present9Collected && present10Collected;
             if (isAllGiftsCollected)
             {
-                //exit code
+                //draw the imposing exit
                 Draw.FillColor = Color.Black;
                 Draw.Rectangle(exitPos, exitSize);
+
+                theExit = 1;
+               
             }
-
-
-
         }
+
+
 
                 public bool GetDetection()
                  {

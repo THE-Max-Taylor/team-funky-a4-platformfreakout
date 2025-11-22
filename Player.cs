@@ -19,6 +19,8 @@ namespace MohawkGame2D
         string direction = "";
         bool hasPresent = false;
 
+        Level1 level1 = new Level1();
+
         bool onIce = false;
 
         public Player() { }
@@ -42,6 +44,9 @@ namespace MohawkGame2D
 
             CheckPresent(presentCollision);
             Graphics.Draw(texture, position);
+
+            
+
         }
 
         /// <summary>
@@ -83,11 +88,14 @@ namespace MohawkGame2D
                 lives = 1;
             }
 
+
             //Used to test level 2
             if ((score >= 100)&&(lives == 1))
             {
                 lives = 2;
             }
+
+
             if ((score >= 110) && (lives == 2))
             {
                 lives = 3;
