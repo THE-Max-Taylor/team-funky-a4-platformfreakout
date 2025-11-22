@@ -18,8 +18,17 @@ namespace MohawkGame2D
         Texture2D textureYay;
         Presents presentsYay = new Presents();
         bool onPit = false;
-        float pointsCount = 0;
+        
         bool present1Collected = false;
+        bool present2Collected = false;
+        bool present3Collected = false;
+        bool present4Collected = false;
+        bool present5Collected = false;
+        bool present6Collected = false;
+        bool present7Collected = false;
+        bool present8Collected = false;
+        bool present9Collected = false;
+        bool present10Collected = false;
 
 
         public void Setup()
@@ -44,14 +53,10 @@ namespace MohawkGame2D
             Draw.Rectangle(badRectPos.X + 900, badRectPos.Y - 650, badRectSize.X, badRectSize.Y+40);
             Draw.Rectangle(badRectPos.X, badRectPos.Y-600, badRectSize.X - 50, badRectSize.Y);
             Draw.Rectangle(badRectPos.X, badRectPos.Y-600, badRectSize.X + 150, badRectSize.Y-150);
-
             Draw.Rectangle(badRectPos.X+200, badRectPos.Y - 600, badRectSize.X, badRectSize.Y + 150);
 
             Graphics.Draw(textureYay, badRectPos.X, badRectPos.Y);
-
-            //exit code
-            Draw.FillColor = Color.White;
-            Draw.Rectangle(exitPos, exitSize);
+           
 
             //draw the presents!!
             presentsYay.Update();
@@ -273,16 +278,14 @@ namespace MohawkGame2D
 
             bool doesPresentOverlap = presentOverlapLeft && presentOverlapRight && presentOverlapTop && presentOverlapBottom;
             if (doesPresentOverlap)               
-            {
-                          
-                Console.WriteLine($"collected? {present1Collected}");
+            {                                       
                 Draw.FillColor = Color.Green;
                 Draw.Rectangle(presentsYay.presentsPos.X + 100, presentsYay.presentsPos.Y + 100, presentsYay.presentsSize.X, presentsYay.presentsSize.Y);
                 present1Collected = true;                                                                       
-            }           
+            }
+            //Console.WriteLine($"collected 1? {present1Collected}");
 
-            //present #2
-            //presentsPos.X + 400, presentsPos.Y + 100, presentsSize.X, presentsSize.Y
+            //present #2          
             presentsEdge = presentsYay.presentsPos.X + 400;
             presentsRightEdge = (presentsYay.presentsPos.X + 400) + (presentsYay.presentsSize.X);
             presentsTopEdge = (presentsYay.presentsPos.Y);
@@ -298,9 +301,182 @@ namespace MohawkGame2D
             {                               
                 Draw.LineColor = Color.Green;
                 Draw.FillColor = Color.Green;
-                Draw.Rectangle(presentsYay.presentsPos.X + 400, presentsYay.presentsPos.Y + 100, presentsYay.presentsSize.X, presentsYay.presentsSize.Y);             
-               
+                Draw.Rectangle(presentsYay.presentsPos.X + 400, presentsYay.presentsPos.Y + 100, presentsYay.presentsSize.X, presentsYay.presentsSize.Y);
+                present2Collected = true;            
+
             }
+            //Console.WriteLine($"collected 2? {present1Collected}");
+
+            //present #3
+            presentsEdge = presentsYay.presentsPos.X + 400;
+            presentsRightEdge = (presentsYay.presentsPos.X + 400) + (presentsYay.presentsSize.X);
+            presentsTopEdge = (presentsYay.presentsPos.Y + 310);
+            presentsBottomEdge = (presentsYay.presentsPos.Y + 310) + presentsYay.presentsSize.Y - 35;
+
+            presentOverlapLeft = presentsEdge < playerRightEdge;
+            presentOverlapRight = presentsRightEdge > playerEdge;
+            presentOverlapTop = presentsTopEdge < playerBottom;
+            presentOverlapBottom = presentsBottomEdge > playerTop;
+
+            doesPresentOverlap = presentOverlapLeft && presentOverlapRight && presentOverlapTop && presentOverlapBottom;
+            if (doesPresentOverlap)
+            {
+                Draw.LineColor = Color.Green;
+                Draw.FillColor = Color.Green;
+                Draw.Rectangle(presentsYay.presentsPos.X + 400, presentsYay.presentsPos.Y + 400, presentsYay.presentsSize.X, presentsYay.presentsSize.Y);
+                present3Collected = true;
+
+            }
+
+            //present #4          
+            presentsEdge = presentsYay.presentsPos.X + 930;
+            presentsRightEdge = (presentsYay.presentsPos.X + 930) + (presentsYay.presentsSize.X);
+            presentsTopEdge = (presentsYay.presentsPos.Y + 600);
+            presentsBottomEdge = (presentsYay.presentsPos.Y + 600) + presentsYay.presentsSize.Y - 35;
+
+            presentOverlapLeft = presentsEdge < playerRightEdge;
+            presentOverlapRight = presentsRightEdge > playerEdge;
+            presentOverlapTop = presentsTopEdge < playerBottom;
+            presentOverlapBottom = presentsBottomEdge > playerTop;
+
+            doesPresentOverlap = presentOverlapLeft && presentOverlapRight && presentOverlapTop && presentOverlapBottom;
+            if (doesPresentOverlap)
+            {
+                Draw.LineColor = Color.Green;
+                Draw.FillColor = Color.Green;
+                Draw.Rectangle(presentsYay.presentsPos.X + 930, presentsYay.presentsPos.Y + 670, presentsYay.presentsSize.X, presentsYay.presentsSize.Y);
+                present4Collected = true;
+            }
+
+            //present #5           
+            presentsEdge = presentsYay.presentsPos.X + 800;
+            presentsRightEdge = (presentsYay.presentsPos.X + 800) + (presentsYay.presentsSize.X);
+            presentsTopEdge = (presentsYay.presentsPos.Y + 600);
+            presentsBottomEdge = (presentsYay.presentsPos.Y + 600) + presentsYay.presentsSize.Y;
+
+            presentOverlapLeft = presentsEdge < playerRightEdge;
+            presentOverlapRight = presentsRightEdge > playerEdge;
+            presentOverlapTop = presentsTopEdge < playerBottom;
+            presentOverlapBottom = presentsBottomEdge > playerTop;
+
+            doesPresentOverlap = presentOverlapLeft && presentOverlapRight && presentOverlapTop && presentOverlapBottom;
+            if (doesPresentOverlap)
+            {
+                Draw.LineColor = Color.Green;
+                Draw.FillColor = Color.Green;
+                Draw.Rectangle(presentsYay.presentsPos.X + 800, presentsYay.presentsPos.Y + 670, presentsYay.presentsSize.X, presentsYay.presentsSize.Y);
+                present5Collected = true;
+            }
+
+            //present #6            
+            presentsEdge = presentsYay.presentsPos.X + 670;
+            presentsRightEdge = (presentsYay.presentsPos.X + 670) + (presentsYay.presentsSize.X);
+            presentsTopEdge = (presentsYay.presentsPos.Y + 600);
+            presentsBottomEdge = (presentsYay.presentsPos.Y + 600) + presentsYay.presentsSize.Y;
+
+            presentOverlapLeft = presentsEdge < playerRightEdge;
+            presentOverlapRight = presentsRightEdge > playerEdge;
+            presentOverlapTop = presentsTopEdge < playerBottom;
+            presentOverlapBottom = presentsBottomEdge > playerTop;
+
+            doesPresentOverlap = presentOverlapLeft && presentOverlapRight && presentOverlapTop && presentOverlapBottom;
+            if (doesPresentOverlap)
+            {
+                Draw.LineColor = Color.Green;
+                Draw.FillColor = Color.Green;
+                Draw.Rectangle(presentsYay.presentsPos.X + 670, presentsYay.presentsPos.Y + 670, presentsYay.presentsSize.X, presentsYay.presentsSize.Y);
+                present6Collected = true;
+            }
+
+            //present #7            
+            presentsEdge = presentsYay.presentsPos.X + 670;
+            presentsRightEdge = (presentsYay.presentsPos.X + 670) + (presentsYay.presentsSize.X);
+            presentsTopEdge = (presentsYay.presentsPos.Y - 70);
+            presentsBottomEdge = (presentsYay.presentsPos.Y - 70) + presentsYay.presentsSize.Y;
+
+            presentOverlapLeft = presentsEdge < playerRightEdge;
+            presentOverlapRight = presentsRightEdge > playerEdge;
+            presentOverlapTop = presentsTopEdge < playerBottom;
+            presentOverlapBottom = presentsBottomEdge > playerTop;
+
+            doesPresentOverlap = presentOverlapLeft && presentOverlapRight && presentOverlapTop && presentOverlapBottom;
+            if (doesPresentOverlap)
+            {
+                Draw.LineColor = Color.Green;
+                Draw.FillColor = Color.Green;
+                Draw.Rectangle(presentsYay.presentsPos.X + 670, presentsYay.presentsPos.Y, presentsYay.presentsSize.X, presentsYay.presentsSize.Y);
+                present7Collected = true;
+            }
+
+            //present #8           
+            presentsEdge = presentsYay.presentsPos.X + 1030;
+            presentsRightEdge = (presentsYay.presentsPos.X + 1030) + (presentsYay.presentsSize.X);
+            presentsTopEdge = (presentsYay.presentsPos.Y - 70);
+            presentsBottomEdge = (presentsYay.presentsPos.Y - 70) + presentsYay.presentsSize.Y;
+
+            presentOverlapLeft = presentsEdge < playerRightEdge;
+            presentOverlapRight = presentsRightEdge > playerEdge;
+            presentOverlapTop = presentsTopEdge < playerBottom;
+            presentOverlapBottom = presentsBottomEdge > playerTop;
+
+            doesPresentOverlap = presentOverlapLeft && presentOverlapRight && presentOverlapTop && presentOverlapBottom;
+            if (doesPresentOverlap)
+            {
+                Draw.LineColor = Color.Green;
+                Draw.FillColor = Color.Green;
+                Draw.Rectangle(presentsYay.presentsPos.X + 1030, presentsYay.presentsPos.Y, presentsYay.presentsSize.X, presentsYay.presentsSize.Y);
+                present8Collected = true;
+            }
+
+            //present #9
+            presentsEdge = presentsYay.presentsPos.X + 160;
+            presentsRightEdge = (presentsYay.presentsPos.X + 160) + (presentsYay.presentsSize.X);
+            presentsTopEdge = (presentsYay.presentsPos.Y + 450);
+            presentsBottomEdge = (presentsYay.presentsPos.Y + 450) + presentsYay.presentsSize.Y;
+
+            presentOverlapLeft = presentsEdge < playerRightEdge;
+            presentOverlapRight = presentsRightEdge > playerEdge;
+            presentOverlapTop = presentsTopEdge < playerBottom;
+            presentOverlapBottom = presentsBottomEdge > playerTop;
+
+            doesPresentOverlap = presentOverlapLeft && presentOverlapRight && presentOverlapTop && presentOverlapBottom;
+            if (doesPresentOverlap)
+            {
+                Draw.LineColor = Color.Green;
+                Draw.FillColor = Color.Green;
+                Draw.Rectangle(presentsYay.presentsPos.X + 160, presentsYay.presentsPos.Y + 550, presentsYay.presentsSize.X, presentsYay.presentsSize.Y);
+                present9Collected = true;
+            }
+
+            //present #10
+            presentsEdge = presentsYay.presentsPos.X + 950;
+            presentsRightEdge = (presentsYay.presentsPos.X + 950) + (presentsYay.presentsSize.X);
+            presentsTopEdge = (presentsYay.presentsPos.Y + 430);
+            presentsBottomEdge = (presentsYay.presentsPos.Y + 430) + presentsYay.presentsSize.Y;
+
+            presentOverlapLeft = presentsEdge < playerRightEdge;
+            presentOverlapRight = presentsRightEdge > playerEdge;
+            presentOverlapTop = presentsTopEdge < playerBottom;
+            presentOverlapBottom = presentsBottomEdge > playerTop;
+
+            doesPresentOverlap = presentOverlapLeft && presentOverlapRight && presentOverlapTop && presentOverlapBottom;
+            if (doesPresentOverlap)
+            {
+                Draw.LineColor = Color.Green;
+                Draw.FillColor = Color.Green;
+                Draw.Rectangle(presentsYay.presentsPos.X + 950, presentsYay.presentsPos.Y + 500, presentsYay.presentsSize.X, presentsYay.presentsSize.Y);
+                present10Collected = true;
+            }
+
+            bool isAllGiftsCollected = present1Collected && present2Collected && present3Collected && present4Collected && present5Collected && present6Collected && present7Collected && present8Collected && present9Collected && present10Collected;
+            if (isAllGiftsCollected)
+            {
+                //exit code
+                Draw.FillColor = Color.Black;
+                Draw.Rectangle(exitPos, exitSize);
+            }
+
+
 
         }
 
