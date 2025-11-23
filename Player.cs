@@ -172,5 +172,11 @@ namespace MohawkGame2D
             lives -= 100;
             
         }
+
+        public void Kill(bool isdead)
+        {
+            if(isdead == true) { lives = -1; }
+
+        }
     }
 }

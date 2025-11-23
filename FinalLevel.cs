@@ -12,6 +12,7 @@ namespace MohawkGame2D
         int r = 255, g = 255, b = 255;
         Vector2[] fire = new Vector2[20];
         int count = -20;
+        bool isDead = false;
         public FinalLevel() { }
 
         public void Setup()
@@ -31,7 +32,7 @@ namespace MohawkGame2D
             return count;
         }
 
-        public void Update()
+        public void Update(Vector2 playerPosition)
         {
             Color bg = new Color(r, g, b);
             Window.ClearBackground(bg);
@@ -42,6 +43,7 @@ namespace MohawkGame2D
             {
                 for (int i = 0; i < fire.Length; i++)
                 {
+                    if (playerPosition.X == fire[i].X){ isDead = true; }
                     count++;
                     fire[i].X++;
                     Color orange = new Color("#f9ed04");
@@ -72,7 +74,11 @@ namespace MohawkGame2D
                 Draw.Circle(255, 33, 30);
             }
             Console.WriteLine("THERE IS NO ESCAPE YOU WILL DIE YOU WILL DIE YOU WILL DIE");
+
+            
         }
+
+        public bool GetIsDead(){ return isDead; }
 
     }
 }

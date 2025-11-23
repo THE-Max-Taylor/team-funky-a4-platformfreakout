@@ -69,7 +69,8 @@ namespace MohawkGame2D
                 }
                 if (player.GetLives() == 3)
                 {
-                    level3.Update();
+                    level3.Update(player.FeetCollision());
+                    player.Kill(level3.GetIsDead());
                 }
 
 
