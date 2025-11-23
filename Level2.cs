@@ -20,7 +20,7 @@ namespace MohawkGame2D
                 holePosition[i] = new Vector2(Random.Integer(40, 1000), Random.Integer(40, 700));
             }
         }
-        public void Update(Vector2 playerFeet){
+        public void Update(Vector2 playerFeet){        
             Draw.LineColor = Color.Blue;
             Draw.FillColor = Color.Blue;
             onPit = false;
