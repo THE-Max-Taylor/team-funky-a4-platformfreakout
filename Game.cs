@@ -59,11 +59,14 @@ namespace MohawkGame2D
                 {
 
                     level1.Update(player.FeetCollision());
+                    player.PassLevel1(level1.ReturnTheExit());
                 }
                 if (player.GetLives() == 2)
                 {
                     player.GetDirection();
                     level2.Update(player.FeetCollision());
+                    
+                   
                 }
                 if (player.GetLives() == 3)
                 {

@@ -186,5 +186,14 @@ namespace MohawkGame2D
             if(isdead == true) { lives = -1; }
 
         }
+
+        public void PassLevel1(int deez)
+        {
+            if (deez == 1)
+            {
+                lives = 2;
+            }
+
+        }
     }
 }

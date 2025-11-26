@@ -39,7 +39,7 @@ namespace MohawkGame2D
         {
             textureYay = Graphics.LoadTexture("MohawkGame2D\\Images\\Lava.png");
            
-        }
+        } 
 
         public void Update(Vector2 feetPosition)
         {
@@ -480,5 +480,9 @@ namespace MohawkGame2D
                  {
                     return onPit;
                 }
+
+        public int ReturnTheExit(){
+            return theExit;
+        }
     }
 }
