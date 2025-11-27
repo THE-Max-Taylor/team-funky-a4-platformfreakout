@@ -484,5 +484,20 @@ namespace MohawkGame2D
         public int ReturnTheExit(){
             return theExit;
         }
+
+        public void Reset(){
+             present1Collected = false;
+             present2Collected = false;
+             present3Collected = false;
+             present4Collected = false;
+             present5Collected = false;
+             present6Collected = false;
+             present7Collected = false;
+             present8Collected = false;
+             present9Collected = false;
+             present10Collected = false;
+            onPit = false;
+            theExit = 0;
+        }
     }
 }

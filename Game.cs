@@ -77,7 +77,19 @@ namespace MohawkGame2D
                 
                 player.Update(cubes.getDetection(), level1.GetDetection(), level2.GetDetection());
 
-                if (player.GetLives() <= -1) { gameOverScreen.Update(); }
+                if (player.GetLives() <= -1) { 
+                    gameOverScreen.Update();
+
+                    if (Input.IsKeyboardKeyDown(KeyboardInput.Enter) == true)
+                    {
+                        player.Reset();
+                        level1.Reset();
+                        level2.Reset();
+                        level3.Reset();
+
+
+                    }
+                }
 
                 // speed = new Vector2(whatever the fuck, the same thing);
                 // angle = Vector2.Normalize(enemy.pos - player.pos);

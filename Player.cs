@@ -19,10 +19,6 @@ namespace MohawkGame2D
         string direction = "";
         bool hasPresent = false;
 
-        Level1 level1 = new Level1();
-
-        bool onIce = false;
-
         public Player() { }
 
         /// <summary>
@@ -53,23 +49,23 @@ namespace MohawkGame2D
         /// Checks for player inputs via controller or keyboard
         /// </summary>
         void Inputs(){
-            float deadzone = 0.15f;
-            if ((Input.IsKeyboardKeyDown(KeyboardInput.Right) == true) || (Input.GetAnyControllerAxis(ControllerAxis.LeftX, deadzone) > 0.10))
+    
+            if ((Input.IsKeyboardKeyDown(KeyboardInput.Right) == true))
             {
                 position.X += 10;
                 direction = "right";
             }
-            else if ((Input.IsKeyboardKeyDown(KeyboardInput.Left) == true) || (Input.GetAnyControllerAxis(ControllerAxis.LeftX, deadzone) < -0.10))
+            else if ((Input.IsKeyboardKeyDown(KeyboardInput.Left) == true))
             {
                 position.X -= 10;
                 direction = "left";
             }
-            if ((Input.IsKeyboardKeyDown(KeyboardInput.Down) == true) || (Input.GetAnyControllerAxis(ControllerAxis.LeftY, deadzone) > 0.10))
+            if ((Input.IsKeyboardKeyDown(KeyboardInput.Down) == true))
             {
                 position.Y += 10;
                 direction = "down";
             }
-            else if ((Input.IsKeyboardKeyDown(KeyboardInput.Up) == true) || (Input.GetAnyControllerAxis(ControllerAxis.LeftY, deadzone) < -0.10))
+            else if ((Input.IsKeyboardKeyDown(KeyboardInput.Up) == true))
             {
                 position.Y -= 10;
                 direction = "up";
@@ -96,7 +92,7 @@ namespace MohawkGame2D
             }
 
 
-            if ((score >= 110) && (lives == 2))
+            if ((score >= 140) && (lives == 2))
             {
                 lives = 3;
             }
@@ -187,12 +183,33 @@ namespace MohawkGame2D
 
         }
 
+        /// <summary>
+        /// Used to pass level 2
+        /// </summary>
+        /// <param name="deez">Checks if all presents have been collected</param>
         public void PassLevel1(int deez)
         {
             if (deez == 1)
             {
                 lives = 2;
             }
+
+        }
+
+        /// <summary>
+        /// Used to reset f
+        /// </summary>
+        public void Reset()
+        {
+
+            Console.WriteLine(lives);
+            Console.WriteLine("Pressed!");
+                lives = 0;
+                position = new Vector2(100, 100);
+                score = 0;
+                
+                
+
 
         }
     }
