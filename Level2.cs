@@ -60,5 +60,10 @@ namespace MohawkGame2D
             return onPit;
         }
 
+        public void Reset()
+        {
+            
+            onPit = false;
+        }
     }
 }

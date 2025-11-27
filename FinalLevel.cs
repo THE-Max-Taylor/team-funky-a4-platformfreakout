@@ -19,7 +19,7 @@ namespace MohawkGame2D
         {
             for (int i = 0; i < fire.Length; i++)
             {
-                fire[i] = new Vector2(0, Random.Integer(0, 700));
+                fire[i] = new Vector2(0, Random.Integer(0, 800));
             }
         }
 
@@ -43,7 +43,7 @@ namespace MohawkGame2D
             {
                 for (int i = 0; i < fire.Length; i++)
                 {
-                    if (playerPosition.X == fire[i].X){ isDead = true; }
+                    if (playerPosition.X <= fire[i].X + 45){ isDead = true; }
                     count++;
                     fire[i].X++;
                     Color orange = new Color("#f9ed04");
@@ -79,6 +79,17 @@ namespace MohawkGame2D
         }
 
         public bool GetIsDead(){ return isDead; }
+        public void Reset(){
+            r = 255;
+            g = 255;
+            b = 255;
+            count = -20;
+            isDead = false;
+            for (int i = 0; i < fire.Length; i++)
+            {
+                fire[i] = new Vector2(0, Random.Integer(0, 800));
+            }
+        }
 
     }
 }
