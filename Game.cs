@@ -23,6 +23,8 @@ namespace MohawkGame2D
         Level2 level2 = new Level2();
         FinalLevel level3 = new FinalLevel();
 
+        Assets assets = new Assets();
+
         //Game over screen when the player dies
         GameOver gameOverScreen = new GameOver();
 
@@ -33,6 +35,7 @@ namespace MohawkGame2D
         {
             Window.SetSize(1100, 800);
             Window.SetTitle("Home Alone 7");
+            assets.Setup();
             player.Setup();
             cubes.Setup();
             gameOverScreen.Setup();
@@ -44,7 +47,7 @@ namespace MohawkGame2D
         /// <summary>
         ///     Update runs every frame.
         /// </summary>
-        public void Update()
+        public void Update(Assets assets)
         {
 
             cubes.Update(player.HasPresent());
@@ -52,12 +55,12 @@ namespace MohawkGame2D
 
             {
                 Window.ClearBackground(Color.White);
-
+                assets.Update();
                 cubes.Update(player.HasPresent());
 
                 if (player.GetLives() == 1)
                 {
-
+                    assets.background1 = Graphics.LoadTexture("MohawkGame2D\\Images\\cum.png");
                     level1.Update(player.FeetCollision());
                     player.PassLevel1(level1.ReturnTheExit());
                 }
@@ -65,11 +68,12 @@ namespace MohawkGame2D
                 {
                     player.GetDirection();
                     level2.Update(player.FeetCollision());
-                    
-                   
+                    assets.background1 = Graphics.LoadTexture("MohawkGame2D\\Images\\cum.png");
+
                 }
                 if (player.GetLives() == 3)
                 {
+                    assets.background1 = Graphics.LoadTexture("MohawkGame2D\\Images\\Mundo-Frankie-A4-Level-2-Floor.png");
                     level3.Update(player.FeetCollision());
                     player.Kill(level3.GetIsDead());
                 }
